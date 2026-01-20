@@ -28,7 +28,7 @@ var HEADER_4_CONTENT = `
             </div>
             
             <div class="sticky-header main-bar-wraper">
-                <div class="main-bar">
+                <div class="main-bar" style="background-color: #ffffff;">
                     <div class="container">
                         
                         <div class="logo-header mostion">
@@ -63,8 +63,19 @@ var HEADER_4_CONTENT = `
                                 <li>
                                     <a href="gallery-grid-1.html">Gallery</a>
                                 </li>
-                                <li>
-                                    <a href="blog-grid-2.html">Blogs</a>
+                                <li class="has-child">
+                                    <a href="javascript:;">Area<i class="fa fa-chevron-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="area-mt-holly-nc.html">Mt Holly, NC</a></li>
+                                        <li><a href="area-lake-wylie-nc.html">Lake Wylie, NC</a></li>
+                                        <li><a href="area-weddington-nc.html">Weddington, NC</a></li>
+                                        <li><a href="area-mint-hill-nc.html">Mint Hill, NC</a></li>
+                                        <li><a href="area-allen-nc.html">Allen, North Carolina</a></li>
+                                        <li><a href="area-matthews-nc.html">Matthews, NC</a></li>
+                                        <li><a href="area-harrisburg-nc.html">Spa in Harrisburg, NC</a></li>
+                                        <li><a href="area-steele-creek-charlotte-nc.html">Steele Creek, Charlotte, NC</a></li>
+                                        <li><a href="area-belmont-nc.html">Belmont, North Carolina</a></li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href="contact-1.html">Contact US</a>
