@@ -88,12 +88,13 @@ var FOOTER_CONTENT = `
                             <div class="widget widget_social_inks">
                                 <h4 class="widget-title">Social Links</h4>
                                 <ul class="social-icons social-square social-darkest">
-                                    <li><a href="javascript:void(0);" class="fa fa-facebook"></a></li>
-                                    <li><a href="javascript:void(0);" class="fa fa-twitter"></a></li>
-                                    <li><a href="javascript:void(0);" class="fa fa-linkedin"></a></li>
-                                    <li><a href="javascript:void(0);" class="fa fa-rss"></a></li>
-                                    <li><a href="javascript:void(0);" class="fa fa-youtube"></a></li>
-                                    <li><a href="javascript:void(0);" class="fa fa-instagram"></a></li>
+                                    <li><a href="https://www.facebook.com/people/Wu-Spa/61581691872363/" class="fa fa-facebook" target="_blank"></a></li>
+                                    <li><a href="https://www.instagram.com/thewooroom2025/" class="fa fa-instagram" target="_blank"></a></li>
+                                    <li><a href="https://www.pinterest.com/wuspacharlotte/" class="fa fa-pinterest" target="_blank"></a></li>
+                                    <li><a href="https://medium.com/@wuspacharlotte" class="fa fa-medium" target="_blank"></a></li>
+                                    <li><a href="https://www.reddit.com/user/wuspacharlotte/" class="fa fa-reddit" target="_blank"></a></li>
+                                    <li><a href="https://g.page/r/CZRVraXLBEK_EBM/" class="fa fa-google" target="_blank"></a></li>
+                                    <li><a href="https://solo.to/wuspa" class="fa fa-link" target="_blank"></a></li>
                                 </ul>
                             </div>
                         </div>

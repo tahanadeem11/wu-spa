@@ -5,6 +5,40 @@ to avoid AJAX loading issues with file:// protocol
 ======================================*/
 
 var HEADER_4_CONTENT = `
+        <style>
+            @media only screen and (max-width: 767px) {
+                .top-bar { padding: 5px 0; }
+                .e-p-bx li { display: block; padding-right: 0; text-align: center; font-size: 11px; margin-bottom: 2px; }
+                .social-bx { float: none !important; text-align: center; margin: 5px 0 0 0 !important; }
+                .social-bx li { padding: 0 4px; }
+                .logo-header { height: 80px !important; width: 200px !important; }
+                .logo-header img { max-height: 50px; }
+                
+                /* Hero Slider Mobile Friendly Fixes */
+                .tp-caption[id^="slide-"][id$="-layer-1"] { 
+                    font-size: 28px !important; 
+                    line-height: 34px !important;
+                    width: 90% !important;
+                    left: 5% !important;
+                    text-align: center !important;
+                }
+                .tp-caption[id^="slide-"][id$="-layer-2"] { 
+                    font-size: 14px !important; 
+                    line-height: 20px !important;
+                    width: 90% !important;
+                    left: 5% !important;
+                    text-align: center !important;
+                    display: -webkit-box !important;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+                .tp-caption[id^="slide-"][id$="-layer-3"] { 
+                    left: 50% !important;
+                    transform: translateX(-50%) !important;
+                }
+            }
+        </style>
         <!-- HEADER START -->
         <header class="site-header header-style-3 mobile-sider-drawer-menu">
         
@@ -16,12 +50,13 @@ var HEADER_4_CONTENT = `
                             <li><i class="fa fa-phone"></i>(980) 222-1633</li>
                         </ul>
                         <ul class="social-bx list-inline">
-                            <li><a href="javascript:void(0);" class="fa fa-facebook"></a></li>
-                            <li><a href="javascript:void(0);" class="fa fa-twitter"></a></li>
-                            <li><a href="javascript:void(0);" class="fa fa-linkedin"></a></li>
-                            <li><a href="javascript:void(0);" class="fa fa-rss"></a></li>
-                            <li><a href="javascript:void(0);" class="fa fa-youtube"></a></li>
-                            <li><a href="javascript:void(0);" class="fa fa-instagram"></a></li>
+                            <li><a href="https://www.facebook.com/people/Wu-Spa/61581691872363/" class="fa fa-facebook" target="_blank"></a></li>
+                            <li><a href="https://www.instagram.com/thewooroom2025/" class="fa fa-instagram" target="_blank"></a></li>
+                            <li><a href="https://www.pinterest.com/wuspacharlotte/" class="fa fa-pinterest" target="_blank"></a></li>
+                            <li><a href="https://medium.com/@wuspacharlotte" class="fa fa-medium" target="_blank"></a></li>
+                            <li><a href="https://www.reddit.com/user/wuspacharlotte/" class="fa fa-reddit" target="_blank"></a></li>
+                            <li><a href="https://g.page/r/CZRVraXLBEK_EBM/" class="fa fa-google" target="_blank"></a></li>
+                            <li><a href="https://solo.to/wuspa" class="fa fa-link" target="_blank"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -181,5 +216,5 @@ var HEADER_4_CONTENT = `
             </div>
             
         </header>
-        <!-- HEADER END -->
-`;
+        <!--HEADER END-- >
+    `;
