@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="skin care product detail Charlotte NC, Skin Script skincare, buy skincare Charlotte, Wu Spa retail products">
+    <meta name="author" content="Wu Spa">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="View detailed information about professional Skin Script skincare products at Wu Spa Charlotte NC. Shop cleansers, serums, moisturizers, SPF, and more.">
+
+    <!-- FAVICONS ICON -->
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+
+    <!-- PAGE TITLE (updated by JS) -->
+    <title>Product Details | Wu Spa Skin Care Charlotte NC</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/flaticon.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="css/magnific-popup.min.css">
+    <link rel="stylesheet" type="text/css" href="css/loader.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" class="skin" href="css/skin/skin-1.css">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <style>
+        /* ---- Product Detail Custom Styles ---- */
+        .product-detail-main-img {
+            width: 100%;
+            height: 420px;
+            object-fit: contain;
+            background: #f8f8f8;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            cursor: zoom-in;
+            transition: transform 0.3s;
+            padding: 10px;
+        }
+        .product-detail-main-img:hover {
+            transform: scale(1.02);
+        }
+        .product-thumb-strip {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+        .product-thumb-strip img {
+            width: 72px;
+            height: 72px;
+            object-fit: cover;
+            border: 2px solid #eee;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .product-thumb-strip img.active,
+        .product-thumb-strip img:hover {
+            border-color: #EC5598;
+        }
+        .product-info-panel {
+            padding-left: 30px;
+        }
+        .product-info-panel h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 5px;
+        }
+        .product-info-panel .product-category-badge {
+            display: inline-block;
+            background: #f5f5f5;
+            color: #888;
+            font-size: 11px;
+            padding: 3px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .product-info-panel .product-detail-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #EC5598;
+            margin: 10px 0 15px;
+        }
+        .product-info-panel .product-detail-desc {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+        .product-detail-specs-table {
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .product-detail-specs-table tr td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .product-detail-specs-table tr td:first-child {
+            font-weight: 600;
+            color: #333;
+            width: 105px;
+        }
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .qty-control label {
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+        .qty-control input[type=number] {
+            width: 70px;
+            height: 42px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 16px;
+            padding: 0 10px;
+        }
+        .detail-action-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .detail-action-btns .site-button {
+            padding: 12px 28px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .detail-action-btns .site-button-secondry {
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .product-tabs .nav-tabs {
+            border-bottom: 2px solid #EC5598;
+        }
+        .product-tabs .nav-tabs > li > a {
+            border: none;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            color: #666;
+            font-weight: 600;
+            padding: 10px 22px;
+        }
+        .product-tabs .nav-tabs > li.active > a,
+        .product-tabs .nav-tabs > li > a:hover {
+            color: #EC5598;
+            border-bottom-color: #EC5598;
+            background: none;
+        }
+        .product-tab-content {
+            padding: 25px 0;
+        }
+        .related-product-card {
+            border: 1px solid #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+        .related-product-card:hover {
+            box-shadow: 0 4px 20px rgba(236,85,152,0.12);
+        }
+        .related-product-card .rpc-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .related-product-card .rpc-info {
+            padding: 12px 12px 15px;
+            text-align: center;
+        }
+        .related-product-card .rpc-info h5 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 5px;
+        }
+        .related-product-card .rpc-info h5 a { color: #333; }
+        .related-product-card .rpc-price {
+            color: #EC5598;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        .not-found-box {
+            text-align: center;
+            padding: 80px 20px;
+            color: #999;
+        }
+        .not-found-box a { color: #EC5598; }
+        .breadcrumb-product-name { font-style: italic; color: #EC5598; }
+        @media (max-width: 767px) {
+            .product-info-panel { padding-left: 0; margin-top: 25px; }
+            .product-info-panel h2 { font-size: 20px; }
+        }
+    </style>
+</head>
+
+<body id="bg">
+    <div class="page-wraper">
+
+        <!-- HEADER START -->
+        <div id="site-header-placeholder"></div>
+        <!-- HEADER END -->
+
+        <!-- CONTENT START -->
+        <div class="page-content bg-white">
+
+            <!-- INNER PAGE BANNER -->
+            <div class="wt-bnr-inr overlay-wraper" style="background-image:url('images/Products images/RetailHeroShots/RetailHero1.jpg');">
+                <div class="overlay-main bg-black opacity-07"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                        <h1 class="text-white" id="detail-banner-title">Product Details</h1>
+                        <p class="text-white m-t10">Professional Skin Script Retail — Wu Spa Charlotte NC</p>
+                    </div>
+                </div>
+            </div>
+            <!-- INNER PAGE BANNER END -->
+
+            <!-- BREADCRUMB ROW -->
+            <div class="bg-gray-light p-tb20">
+                <div class="container">
+                    <ul class="wt-breadcrumb breadcrumb-style-2">
+                        <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li id="breadcrumb-product-name">Product Details</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- BREADCRUMB ROW END -->
+
+            <!-- PRODUCT DETAIL SECTION -->
+            <div class="section-full p-t60 p-b30">
+                <div class="container">
+                    <div id="product-detail-content">
+                        <!-- Filled by JS -->
+                        <div class="text-center p-tb50"><i class="fa fa-spinner fa-spin fa-2x" style="color:#EC5598;"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RELATED PRODUCTS -->
+            <div class="section-full p-t10 p-b50 bg-gray-light">
+                <div class="container">
+                    <div class="p-b20 text-center">
+                        <h3 class="text-uppercase">Related <span class="site-text-primary">Products</span></h3>
+                        <div class="wt-separator-outer m-b20">
+                            <div class="wt-separator style-icon">
+                                <i class="fa fa-leaf text-black"></i>
+                                <span class="separator-left site-bg-primary"></span>
+                                <span class="separator-right site-bg-primary"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="related-products-grid">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- CONTENT END -->
+
+        <!-- FOOTER START -->
+        <div id="site-footer-placeholder"></div>
+        <!-- FOOTER END -->
+
+        <!-- BUTTON TOP START -->
+        <button class="scroltop"><span class="iconmoon-house relative" id="btn-vibrate"></span>Top</button>
+
+    </div>
+
+    <!-- LOADING AREA -->
+    <div class="loading-area">
+        <div class="loading-box"></div>
+        <div class="loading-pic">
+            <div class="cssload-container">
+                <div class="cssload-progress cssload-float cssload-shadow">
+                    <div class="cssload-progress-item"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/header-content.js"></script>
+    <script src="js/header-loader.js"></script>
+    <script src="js/footer-content.js"></script>
+    <script src="js/footer-loader.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="js/magnific-popup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/counterup.min.js"></script>
+    <script src="js/waypoints-sticky.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/scrolla.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/shortcode.js"></script>
+
+    <script>
+    /* =============================================
+       FULL PRODUCT CATALOG (same as product.html)
+    ============================================= */
+    var PRODUCTS = [
+        // CLEANSERS
+        { id:'pomegranate-antioxidant-cleanser', name:'Pomegranate Antioxidant Cleanser', price:32.00, category:'cleanser',
+          images:['images/Products images/Cleansers/pomegranate/Pomegranate_2oz.jpg','images/Products images/Cleansers/pomegranate/Pomegranate_6.4oz.jpg','images/Products images/Cleansers/pomegranate/Pomegranate_16oz.jpg','images/Products images/Cleansers/pomegranate/Pomegranate_Cleanser_Smear.jpg'],
+          description:'A rich antioxidant-packed cleanser with pomegranate extract that gently removes impurities while protecting against free radical damage. Perfect for normal to dry and mature skin types, this formula leaves skin clean, balanced, and protected.',
+          benefits:'Removes environmental pollutants and impurities, provides antioxidant protection against free radicals, hydrates while cleansing, improves skin clarity and radiance.',
+          howToUse:'Apply a small amount to damp skin. Gently massage in circular movements. Rinse thoroughly with warm water. Use morning and evening.',
+          ingredients:'Pomegranate Extract, Vitamin C, Botanical Antioxidants, Aloe Vera, Glycerin, Green Tea Extract',
+          skinType:'Normal, Dry, Mature', size:'2 oz / 6.4 oz / 16 oz' },
+
+        { id:'green-tea-citrus-cleanser', name:'Green Tea Citrus Cleanser', price:32.00, category:'cleanser',
+          images:['images/Products images/RetailHeroShots/web-c9-Skin Script_r1_03E_6411.jpg'],
+          description:'A refreshing gel cleanser infused with green tea and citrus extracts to brighten skin, fight oxidative stress, and leave your complexion luminous and clean. Salicylic acid helps keep pores clear.',
+          benefits:'Brightens and evens skin tone, controls oil without over-drying, antioxidant-rich formula fights environmental stressors, decongests and purifies pores.',
+          howToUse:'Apply to damp face and neck. Massage gently in upward circular motions for 60 seconds. Rinse well. Use morning and evening.',
+          ingredients:'Green Tea Extract, Citrus Extracts, Vitamin C, Salicylic Acid, Aloe Vera, Glycerin',
+          skinType:'Normal, Oily, Combination', size:'6.4 oz' },
+
+        { id:'charcoal-clay-cleanser', name:'Charcoal Clay Cleanser', price:32.00, category:'cleanser',
+          images:['images/Products images/RetailHeroShots/web-ce-Skin Script_r1_03E_4044.jpg'],
+          description:'A deep-purifying cleanser featuring activated charcoal and kaolin clay that draws out impurities, unclogs pores, and controls excess oil for a clearer, more balanced complexion.',
+          benefits:'Deep pore cleansing with activated charcoal, absorbs excess sebum, reduces blackheads and congestion, calms blemish-prone skin.',
+          howToUse:'Dampen face. Apply a generous amount and massage gently for 1 minute. Rinse thoroughly. Recommended for evening use.',
+          ingredients:'Activated Charcoal, Kaolin Clay, Tea Tree Oil, Aloe Vera, Witch Hazel',
+          skinType:'Oily, Combination, Acne-Prone', size:'6.4 oz' },
+
+        { id:'honey-brightening-cleanser', name:'Honey Brightening Cleanser', price:39.00, category:'cleanser',
+          images:['images/Products images/RetailHeroShots/web-cf-Skin Script_r1_03E_4042.jpg'],
+          description:'A luxurious brightening cream cleanser enriched with natural honey and brightening botanical extracts. Hydrates as it cleanses, leaving skin soft, supple, and radiant.',
+          benefits:'Brightens dull complexion, deeply hydrates while cleansing, gentle enough for daily double cleansing, reduces appearance of dark spots over time.',
+          howToUse:'Apply to dry or damp skin. Massage gently. Rinse or remove with a warm cloth. Use morning and evening for best results.',
+          ingredients:'Raw Honey, Vitamin C, Licorice Root Extract, Glycerin, Chamomile Extract',
+          skinType:'Dry, Normal, Dull', size:'6.4 oz' },
+
+        { id:'glycolic-cleanser', name:'Glycolic Cleanser', price:36.00, category:'cleanser',
+          images:['images/Products images/RetailHeroShots/web-d0-Skin Script_r1_03E_4046.jpg'],
+          description:'An exfoliating cleanser with glycolic acid that gently resurfaces the skin, removes dead skin cells, and promotes healthy cell turnover for a smoother, brighter complexion.',
+          benefits:'Gentle daily exfoliation, promotes cell renewal, improves skin texture and tone, reduces fine lines with regular use.',
+          howToUse:'Apply to damp skin. Massage gently for 30–60 seconds. Rinse well. Start with evening use only; build up to morning and evening.',
+          ingredients:'Glycolic Acid, Lactic Acid, Aloe Vera, Cucumber Extract, Vitamin B5',
+          skinType:'Normal, Oily, Sun-damaged', size:'6.4 oz' },
+
+        { id:'raspberry-refining-cleanser', name:'Raspberry Refining Cleanser', price:33.00, category:'cleanser',
+          images:['images/Products images/RetailHeroShots/web-d1-Skin Script_r1_03E_4018.jpg'],
+          description:'A gentle exfoliating cleanser with raspberry seed powder and fruit enzymes that refines skin texture, minimizes pores, and leaves skin velvety soft and glowing.',
+          benefits:'Gentle physical exfoliation, polishes away dead skin cells, smooths and softens skin surface, safe for more sensitive skin types.',
+          howToUse:'Apply to damp face. Massage gently in circular motions. Rinse thoroughly. Use 2–3 times per week or as directed.',
+          ingredients:'Raspberry Seed Powder, Fruit Enzymes, Vitamin E, Chamomile, Aloe Vera',
+          skinType:'All Skin Types', size:'6.4 oz' },
+
+        // EXFOLIANTS
+        { id:'revitalizing-cucumber-treatment', name:'Revitalizing Cucumber Treatment', price:52.00, category:'exfoliant',
+          images:['images/Products images/RetailHeroShots/web-d2-Skin Script_r1_03E_4011.jpg'],
+          description:'An advanced resurfacing treatment with cucumber extract and alpha hydroxy acids that accelerates cell turnover, smooths texture, and delivers intense hydration while exfoliating.',
+          benefits:'Dual exfoliating and hydrating action, visibly smooths rough texture, reduces fine lines, calming cucumber soothes post-exfoliation.',
+          howToUse:'Apply a thin layer to clean, dry skin. Leave on for 5–10 minutes. Remove with warm water. Use 1–2 times per week.',
+          ingredients:'Cucumber Extract, AHAs, Hyaluronic Acid, Aloe Vera, Green Tea',
+          skinType:'All Skin Types, Sensitive-Friendly', size:'2 oz' },
+
+        { id:'retinol-exfoliating-scrub', name:'Retinol Exfoliating Scrub', price:45.00, category:'exfoliant',
+          images:['images/Products images/Exfoliants/RetinolExfoliatingScrub/RetinolExfoliatingScrub_1.7oz.jpg','images/Products images/Exfoliants/RetinolExfoliatingScrub/RetinolScrub_8oz_website.webp','images/Products images/Exfoliants/RetinolExfoliatingScrub/Retinol_Exfoliating_Scrub_Smear.jpg'],
+          description:'A powerful anti-aging exfoliating scrub combining retinol with jojoba beads to resurface skin, diminish fine lines, and stimulate collagen production for a more youthful appearance.',
+          benefits:'Dual-action retinol + physical exfoliation, accelerates cell turnover, reduces fine lines and wrinkles, smooths rough texture, promotes firmer skin.',
+          howToUse:'Apply to clean, damp skin. Massage gently for 1 minute. Rinse thoroughly. Use 1–2 times per week in the evening. Always follow with SPF.',
+          ingredients:'Retinol, Jojoba Beads, Vitamin A, Glycolic Acid, Shea Butter, Vitamin E',
+          skinType:'Normal, Aging, Sun-damaged', size:'1.7 oz / 8 oz' },
+
+        { id:'raspberry-scrub', name:'Raspberry Scrub', price:33.00, category:'exfoliant',
+          images:['images/Products images/RetailHeroShots/web-d5-Skin Script_r1_03E_4051.jpg'],
+          description:'A delicate physical exfoliating scrub with raspberry seed powder that gently buffs away dead skin cells, unclogs pores, and improves skin texture for a radiant, smooth finish.',
+          benefits:'Gentle physical exfoliation, brightens dull skin, decongests pores, leaves skin velvety smooth, suitable for sensitive types.',
+          howToUse:'Apply to damp skin. Massage gently in circular motions for 60 seconds. Rinse thoroughly. Use 1–2 times per week.',
+          ingredients:'Raspberry Seed Powder, Jojoba Beads, Aloe Vera, Vitamin E, Chamomile',
+          skinType:'Normal, Sensitive, Dry', size:'2 oz' },
+
+        { id:'glycolic-retinol-pads', name:'Glycolic and Retinol Pads', price:30.00, category:'exfoliant',
+          images:['images/Products images/RetailHeroShots/GlycolicandRetinolPads.jpg','images/Products images/RetailHeroShots/GlycolicandRetinolPads_flair1.jpg','images/Products images/RetailHeroShots/GlycolicandRetinolPads_openjar2.jpg'],
+          description:'Pre-soaked exfoliating pads infused with glycolic acid and retinol that deliver a powerful dual-action resurfacing treatment — easy to use with visible results from the first application.',
+          benefits:'Convenient single-step exfoliation, glycolic acid resurfaces texture, retinol supports collagen production, niacinamide brightens and tightens pores.',
+          howToUse:'Sweep one pad over clean, dry face and neck in the evening. Do not rinse. Allow to absorb fully. Apply moisturizer. Use 2–3 times per week.',
+          ingredients:'Glycolic Acid, Retinol, Witch Hazel, Niacinamide, Aloe Vera',
+          skinType:'Normal, Oily, Aging', size:'60 pads' },
+
+        { id:'clarifying-toner-pads', name:'Clarifying Toner Pads', price:22.00, category:'exfoliant',
+          images:['images/Products images/RetailHeroShots/web-d6-Skin Script_r1_03E_4028.jpg'],
+          description:'Convenient pre-soaked toning and clarifying pads with salicylic acid and witch hazel that clear congested skin, reduce blemishes, and refine pores as the perfect post-cleansing step.',
+          benefits:'Clears and decongests pores, controls acne-causing bacteria, reduces blemish frequency, non-drying formula with aloe vera.',
+          howToUse:'After cleansing, sweep one pad over face and neck. Do not rinse. Follow with serum or moisturizer. Use morning and/or evening.',
+          ingredients:'Salicylic Acid, Witch Hazel, Tea Tree Extract, Aloe Vera, Glycerin',
+          skinType:'Oily, Acne-Prone, Combination', size:'60 pads' },
+
+        // TONERS
+        { id:'mint-refining-toner', name:'Mint Refining Toner', price:24.00, category:'toner',
+          images:['images/Products images/Toners/mint refining/Mint_Toner3.3oz.jpg','images/Products images/Toners/mint refining/Mint_Toner2oz.jpg','images/Products images/Toners/mint refining/Mint_Toner16oz.jpg','images/Products images/Toners/mint refining/mint-hydrating-toner-857x1024.jpg'],
+          description:'A refreshing pore-refining toner with peppermint extract and astringent botanicals that tightens pores, balances skin pH, and preps skin for optimal absorption of serums and moisturizers.',
+          benefits:'Tightens and minimizes enlarged pores, balances skin pH after cleansing, refreshing sensation calms redness, prepares skin for serums.',
+          howToUse:'Apply to a cotton pad or mist directly onto clean face and neck. Gently pat in. Do not rinse. Follow immediately with serum or moisturizer.',
+          ingredients:'Peppermint Extract, Witch Hazel, Niacinamide, Green Tea, Glycerin',
+          skinType:'Normal, Oily, Combination', size:'2 oz / 3.3 oz / 16 oz' },
+
+        { id:'cucumber-hydration-toner', name:'Cucumber Hydration Toner', price:24.00, category:'toner',
+          images:['images/Products images/RetailHeroShots/CucumberHydrationToner_3.3oz_flair1.jpg','images/Products images/RetailHeroShots/CucumberToner_3.3oz_flair2.jpg','images/Products images/RetailHeroShots/CucumberToner_16oz_flair1.jpg'],
+          description:'A soothing, deeply hydrating toner with cucumber extract and hyaluronic acid that calms redness, replenishes moisture levels, and leaves skin feeling refreshed, balanced, and comfortable.',
+          benefits:'Intense hydration boost, soothes irritated or sensitive skin, reduces redness, maintains healthy moisture barrier.',
+          howToUse:'Apply to cotton pad or mist onto clean skin. Pat gently to absorb. Do not rinse. Follow with your serum and moisturizer.',
+          ingredients:'Cucumber Extract, Hyaluronic Acid, Aloe Vera, Rosewater, Glycerin',
+          skinType:'Normal, Dry, Sensitive', size:'3.3 oz / 16 oz' },
+
+        // SERUMS
+        { id:'citrus-c-nourishing-cream', name:'Citrus C Nourishing Cream', price:48.00, category:'serum',
+          images:['images/Products images/Serums/citrus-c nourishing/CitrusCNourishingCream_4oz.jpg','images/Products images/Serums/citrus-c nourishing/CitrusCNourishingCream_1oz_website.webp','images/Products images/Serums/citrus-c nourishing/Citrus_Nourishing_Cream_Smear.jpg'],
+          description:'A vitamin C-rich brightening cream serum that evens skin tone, fades dark spots and hyperpigmentation, and delivers powerful antioxidant protection for a luminous, radiant complexion.',
+          benefits:'Brightens and evens skin tone, fades dark spots and sun damage, potent antioxidant protection, nourishing texture provides hydration alongside vitamin C.',
+          howToUse:'Apply 1–2 pumps to clean face and neck, morning and/or evening. Gently massage until absorbed. Follow with moisturizer and SPF (AM).',
+          ingredients:'Vitamin C (L-Ascorbic Acid), Citrus Extracts, Niacinamide, Ferulic Acid, Hyaluronic Acid',
+          skinType:'All Skin Types, Dull/Uneven', size:'1 oz / 4 oz' },
+
+        { id:'triple-c-serum', name:'Triple C Serum', price:44.00, category:'serum',
+          images:['images/Products images/RetailHeroShots/web-d3-Skin Script_r1_03E_4023.jpg'],
+          description:'A potent triple-action vitamin C serum that simultaneously brightens, firms, and protects skin. Three stable forms of vitamin C work synergistically for maximum efficacy.',
+          benefits:'Triple vitamin C complex for superior brightening, firms and tightens skin texture, powerful free radical protection, stabilized formula for lasting potency.',
+          howToUse:'Apply 3–4 drops to clean face and neck. Gently press into skin. Follow with moisturizer. Use morning and/or evening. Always apply SPF in AM.',
+          ingredients:'L-Ascorbic Acid, Vitamin C Glucoside, Ascorbyl Palmitate, Vitamin E, Ferulic Acid',
+          skinType:'Normal, Aging, Dull', size:'1 oz' },
+
+        { id:'ageless-hydrating-serum', name:'Ageless Skin Hydrating Serum', price:40.00, category:'serum',
+          images:['images/Products images/RetailHeroShots/AgelessSkinMoisturizer_8oz_flair.jpg'],
+          description:'An intensely hydrating anti-aging serum with hyaluronic acid and peptides that plumps fine lines, restores moisture barrier function, and delivers lasting hydration around the clock.',
+          benefits:'Instant and sustained hydration, plumps fine lines with hyaluronic acid, peptide complex supports collagen, strengthens compromised moisture barrier.',
+          howToUse:'Apply 2–3 drops to clean face and neck. Gently pat in. Layer under your moisturizer. Use morning and evening for best results.',
+          ingredients:'Hyaluronic Acid, Tripeptide Complex, Vitamin B5, Glycerin, Aloe Vera',
+          skinType:'Dry, Mature, Dehydrated', size:'1 oz' },
+
+        { id:'advanced-renewal-serum', name:'Advanced Renewal Serum', price:66.00, category:'serum',
+          images:['images/Products images/RetailHeroShots/web-d4-Skin Script_r1_03E_4012.jpg'],
+          description:'Our most advanced anti-aging serum featuring stem cell technology, growth factors, and peptides that visibly regenerate and renew skin for dramatic, measurable age-defying results.',
+          benefits:'Stem cell technology supports skin regeneration, growth factors accelerate renewal, peptides firm and lift, comprehensive multi-pathway anti-aging action.',
+          howToUse:'Apply 3–4 drops to clean face, neck and décolletage. Gently massage in upward strokes. Use morning and evening. Follow with SPF (AM).',
+          ingredients:'Plant Stem Cells, EGF, Tripeptide-5, Retinol, Vitamin C, Hyaluronic Acid',
+          skinType:'Mature, Aging, Sun-damaged', size:'1 oz' },
+
+        { id:'mandelic-brightening-serum', name:'Mandelic Brightening Serum', price:40.00, category:'serum',
+          images:['images/Products images/RetailHeroShots/web-da-Skin Script_r1_03E_4032.jpg'],
+          description:'A gentle yet highly effective brightening serum with mandelic acid that targets hyperpigmentation, evens skin tone, and provides mild exfoliation without irritation — safe for all skin types.',
+          benefits:'Fades dark spots and melasma, gentle AHA exfoliation safe for sensitive skin, evens complexion, brightens without causing irritation or downtime.',
+          howToUse:'Apply a few drops to clean face and neck in the evening. Follow with a moisturizer. Introduce gradually — start 2–3 times per week, build up.',
+          ingredients:'Mandelic Acid, Kojic Acid, Niacinamide, Licorice Root Extract, Vitamin C',
+          skinType:'All Skin Types, Hyperpigmentation', size:'1 oz' },
+
+        { id:'peptide-eye-serum', name:'Peptide Eye Serum', price:36.00, category:'serum',
+          images:['images/Products images/RetailHeroShots/web-db-Skin Script_r1_03E_4038.jpg'],
+          description:'A targeted eye serum with peptide complex and caffeine that reduces dark circles, firms the delicate eye contour, and minimizes crow\'s feet and fine lines for a refreshed, awake appearance.',
+          benefits:'Reduces puffiness and dark circles, firms and tightens the eye contour, caffeine decongests under-eye area, peptides support collagen around eyes.',
+          howToUse:'Apply a small amount around the orbital bone using your ring finger. Gently tap in with fingertips. Use morning and evening.',
+          ingredients:'Peptide Complex, Caffeine, Hyaluronic Acid, Vitamin K, Arnica Extract',
+          skinType:'All Skin Types — Eye Area', size:'0.5 oz' },
+
+        { id:'tri-peptide-eye-cream', name:'Tri-Peptide Eye Cream', price:36.00, category:'serum',
+          images:['images/Products images/RetailHeroShots/web-dc-Skin Script_r1_03E_4041.jpg'],
+          description:'A rich, nourishing eye cream with three powerful peptides that work together to firm, lift, and rejuvenate the delicate eye area while providing deep, long-lasting hydration.',
+          benefits:'Triple peptide firming action, lifts and tightens eye area skin, reduces appearance of fine lines and crow\'s feet, rich moisturization prevents dryness.',
+          howToUse:'Apply a rice grain-sized amount to the orbital bone area. Pat gently with ring finger. Use morning and evening after applying eye serum.',
+          ingredients:'Tri-Peptide Complex, Shea Butter, Vitamin E, Retinol, Ceramides',
+          skinType:'All Skin Types — Eye Area', size:'0.5 oz' },
+
+        { id:'blemish-spot-treatment', name:'Blemish Spot Treatment', price:23.00, category:'serum',
+          images:['images/Products images/RetailHeroShots/web-d9-Skin Script_r1_03E_4036.jpg'],
+          description:'A fast-acting targeted spot treatment with salicylic acid and sulfur that rapidly reduces the size, redness, and inflammation of blemishes overnight for clearer, calmer skin.',
+          benefits:'Rapidly shrinks active blemishes, reduces redness and inflammation, prevents bacterial spread, gentle enough for spot use alongside your routine.',
+          howToUse:'Apply directly to individual blemishes using a clean fingertip or cotton swab. Leave on overnight. Do not apply to surrounding skin. Use as needed.',
+          ingredients:'Salicylic Acid, Sulfur, Tea Tree Oil, Zinc Oxide, Niacinamide',
+          skinType:'Oily, Acne-Prone, Combination', size:'0.5 oz' },
+
+        // MASKS
+        { id:'botanical-bloom-hydrating-mask', name:'Botanical Bloom Hydrating Mask', price:48.00, category:'mask',
+          images:['images/Products images/RetailHeroShots/RetailHero2.jpg','images/Products images/RetailHeroShots/RetailHeroNoGly2.jpg'],
+          description:'A luxurious botanical hydrating mask infused with rare flower extracts, hyaluronic acid, and nourishing botanicals that delivers an intense surge of moisture and radiance in just 15 minutes.',
+          benefits:'Intense hydration treatment, soothes and calms irritated skin, visibly plumps and smooths, leaves skin with a luminous glow instantly.',
+          howToUse:'Apply a generous, even layer to clean face and neck. Leave on for 10–15 minutes. Rinse thoroughly or massage remaining product into skin. Use 1–2 times per week.',
+          ingredients:'Rose Extract, Hyaluronic Acid, Aloe Vera, Glycerin, Chamomile, Jasmine Extract',
+          skinType:'Dry, Normal, Sensitive', size:'2 oz' },
+
+        // MOISTURIZERS
+        { id:'light-aloe-moisturizer', name:'Light Aloe Moisturizer', price:24.00, category:'moisturizer',
+          images:['images/Products images/RetailHeroShots/web-d6-Skin Script_r1_03E_6378 copy.jpg'],
+          description:'A lightweight, oil-free gel moisturizer with pure aloe vera that hydrates without clogging pores, calms inflammation, and creates a perfect mattifying canvas for makeup application.',
+          benefits:'Lightweight hydration without heaviness, controls shine on oily areas, calms and soothes reactive skin, perfect base under SPF or makeup.',
+          howToUse:'Apply to clean face and neck morning and evening. Massage gently in upward strokes until fully absorbed. Follow with SPF in the morning.',
+          ingredients:'Aloe Vera, Hyaluronic Acid, Green Tea, Niacinamide, Glycerin',
+          skinType:'Oily, Combination, Sensitive', size:'1.75 oz / 8 oz' },
+
+        { id:'ageless-skin-moisturizer', name:'Ageless Skin Moisturizer', price:24.00, category:'moisturizer',
+          images:['images/Products images/RetailHeroShots/AgelessSkinMoisturizer_8oz_withpump.jpg','images/Products images/RetailHeroShots/AgelessSkinMoisturizer_2oz_flair2.jpg','images/Products images/RetailHeroShots/AgelessSkinMoisturizer_flair1.jpg'],
+          description:'A comprehensive anti-aging moisturizer that combines peptides, antioxidants, and humectants to address multiple signs of aging — fine lines, loss of firmness, and uneven texture — in one step.',
+          benefits:'Multi-correction anti-aging formula, smooths and firms skin texture, antioxidants protect against daily damage, long-lasting moisturization.',
+          howToUse:'Apply morning and evening to clean face and neck. Massage gently in upward, circular motions until absorbed. Follow with SPF in the morning.',
+          ingredients:'Peptide Complex, Vitamin C, Retinol, Hyaluronic Acid, Ceramides',
+          skinType:'Normal, Aging, Dry', size:'2 oz / 8 oz' },
+
+        { id:'cacteen-balancing-moisturizer', name:'Cacteen Balancing Moisturizer', price:31.00, category:'moisturizer',
+          images:['images/Products images/RetailHeroShots/BarrierBalancingMoisturizer_8oz.jpg','images/Products images/RetailHeroShots/BarrierBalancingMoisturizer_8oz_flair.jpg'],
+          description:'A balancing moisturizer with cactus extract and ceramides that restores the skin\'s natural barrier, regulates sebum production, and provides perfectly balanced hydration for combination skin.',
+          benefits:'Balances oily and dry zones simultaneously, cactus extract regulates sebum, ceramides repair and protect barrier, reduces redness in reactive skin.',
+          howToUse:'Apply morning and evening to clean face and neck. Focus on dry areas with a slightly thicker application. Follow with SPF in the morning.',
+          ingredients:'Cactus Extract, Ceramides, Niacinamide, Zinc PCA, Hyaluronic Acid',
+          skinType:'Combination, Oily, Blemish-Prone', size:'1.75 oz / 8 oz' },
+
+        { id:'acai-berry-moisturizer', name:'Acai Berry Moisturizer', price:37.00, category:'moisturizer',
+          images:['images/Products images/Moisturizer/acai berry/AcaiBerryMoisturizer_8oz_website.jpg','images/Products images/Moisturizer/acai berry/AcaiBerryMoisturizer_1.7oz.jpg','images/Products images/Moisturizer/acai berry/Acai_Moisturizer_Smear.jpg','images/Products images/RetailHeroShots/AcaiBerryMoisrturizer_8oz_flair1.jpg'],
+          description:'A supercharged antioxidant moisturizer rich in Omega-3 fatty acids and acai berry extract that protects against environmental damage, deeply nourishes, and promotes a youthful, plump complexion.',
+          benefits:'Supercharged antioxidant protection, Omega-3 fatty acids nourish and soften, resveratrol fights premature aging, visibly plumps and firms skin texture.',
+          howToUse:'Apply morning and evening to clean face and neck. Warm between fingertips and press into skin. Follow with SPF in the morning.',
+          ingredients:'Acai Berry Extract, Omega-3 Fatty Acids, Vitamin E, Resveratrol, Hyaluronic Acid',
+          skinType:'Normal, Dry, Mature', size:'1.7 oz / 8 oz' },
+
+        { id:'peptide-moisturizer', name:'Peptide Moisturizer', price:55.00, category:'moisturizer',
+          images:['images/Products images/RetailHeroShots/web-d7-Skin Script_r1_03E_4052.jpg'],
+          description:'A premium peptide-rich moisturizer that visibly firms, lifts, and smooths skin over time. Multiple peptide sequences target different biological pathways for comprehensive anti-aging correction.',
+          benefits:'Multi-peptide firming complex, improves skin elasticity and density, reduces depth of wrinkles, EGF supports natural skin regeneration cycle.',
+          howToUse:'Apply morning and evening as the final step of your skincare routine. Massage gently in upward strokes. Follow with SPF (AM).',
+          ingredients:'Multi-Peptide Complex, EGF, Ceramides, Hyaluronic Acid, Vitamin E',
+          skinType:'Mature, Aging, Normal', size:'1.75 oz' },
+
+        { id:'hydrating-moisturizer', name:'Hydrating Moisturizer', price:32.00, category:'moisturizer',
+          images:['images/Products images/RetailHeroShots/web-d8-Skin Script_r1_03E_4030.jpg'],
+          description:'A deeply hydrating moisturizer with hyaluronic acid and a humectant complex that provides 24-hour moisture retention, strengthens the skin barrier, and leaves skin continuously soft and comfortable.',
+          benefits:'24-hour sustained hydration, strengthens compromised moisture barrier, reduces transepidermal water loss, prevents seasonal dryness and flaking.',
+          howToUse:'Apply morning and evening to clean face and neck. Massage gently until absorbed. Can be layered over a hydrating serum for extra moisture.',
+          ingredients:'Hyaluronic Acid, Glycerin, Ceramides, Vitamin B5, Aloe Vera',
+          skinType:'Dry, Dehydrated, Normal', size:'1.75 oz' },
+
+        // SUN PROTECTION
+        { id:'sheer-protection-spf30', name:'Sheer Protection SPF 30', price:30.00, category:'spf',
+          images:['images/Products images/SPF/SheerProtectionSPF30_2oz.webp','images/Products images/RetailHeroShots/SPFHeroSmear.jpg','images/Products images/RetailHeroShots/SPFSmear2.jpg'],
+          description:'A featherlight, non-greasy broad-spectrum SPF 30 sunscreen that provides superior UVA/UVB protection while wearing invisibly under makeup. No white cast, no heavy feel — a daily essential for all skin types.',
+          benefits:'Broad-spectrum UVA/UVB protection, no white cast formula wears beautifully under makeup, lightweight and non-greasy, antioxidant-enhanced for extra defense.',
+          howToUse:'Apply as the last step of your morning skincare routine, before makeup. Apply generously to face and neck. Reapply every 2 hours when outdoors.',
+          ingredients:'Zinc Oxide, Octinoxate, Vitamin C, Green Tea Extract, Vitamin E',
+          skinType:'All Skin Types', size:'2 oz' },
+
+        // LIPS
+        { id:'ageless-lip-treatment', name:'Ageless Lip Treatment', price:16.00, category:'lip',
+          images:['images/Products images/Lip Treatment/NewLipTX_ProductImage.png'],
+          description:'A nourishing, anti-aging lip treatment available in Pomegranate or Peppermint. Plumps and hydrates lips with SPF 15 while delivering a tinted sheen. Clinically tested for long-lasting results and lip volume improvement.',
+          benefits:'Plumps and volumizes lips, SPF 15 protects from UV damage, deep moisturization prevents chapping, tinted sheen enhances natural lip color.',
+          howToUse:'Apply directly to lips as needed throughout the day. Can be worn alone or over lip color. Reapply before sun exposure. Available in Pomegranate or Peppermint.',
+          ingredients:'Peptides, SPF 15, Vitamin E, Shea Butter, Pomegranate or Peppermint Extract',
+          skinType:'All — Lip Area', size:'0.25 oz (choose Pomegranate or Peppermint)' }
+    ];
+
+    /* =============================================
+       LOOKUP + RELATED
+    ============================================= */
+    function getProductById(id) {
+        for (var i = 0; i < PRODUCTS.length; i++) {
+            if (PRODUCTS[i].id === id) return PRODUCTS[i];
+        }
+        return null;
+    }
+
+    function getRelated(product, count) {
+        count = count || 4;
+        var related = [];
+        for (var i = 0; i < PRODUCTS.length; i++) {
+            if (PRODUCTS[i].id !== product.id && PRODUCTS[i].category === product.category) {
+                related.push(PRODUCTS[i]);
+            }
+            if (related.length >= count) break;
+        }
+        // Fill with other products if needed
+        if (related.length < count) {
+            for (var j = 0; j < PRODUCTS.length; j++) {
+                if (PRODUCTS[j].id !== product.id && related.indexOf(PRODUCTS[j]) === -1) {
+                    related.push(PRODUCTS[j]);
+                }
+                if (related.length >= count) break;
+            }
+        }
+        return related;
+    }
+
+    /* =============================================
+       RENDER DETAIL PAGE
+    ============================================= */
+    function renderDetail(product) {
+        var mainImg = product.images[0];
+        var catLabel = product.category.charAt(0).toUpperCase() + product.category.slice(1);
+
+        // Banner + breadcrumb
+        document.getElementById('detail-banner-title').textContent = product.name;
+        document.getElementById('breadcrumb-product-name').textContent = product.name;
+        document.title = product.name + ' | Wu Spa Charlotte NC';
+
+        // Thumbnails
+        var thumbsHTML = '';
+        product.images.forEach(function (src, idx) {
+            thumbsHTML += '<img src="' + src + '" alt="' + product.name + ' view ' + (idx+1) + '" ' +
+                (idx === 0 ? 'class="active"' : '') +
+                ' onclick="switchDetailImage(this, \'' + src + '\')"' +
+                ' onerror="this.style.display=\'none\'">';
+        });
+
+        // Stars
+        var stars = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i>';
+
+        var html =
+            '<div class="row">' +
+
+            // LEFT: Image Gallery
+            '<div class="col-lg-5 col-md-12 m-b30">' +
+            '<img id="detail-main-image" src="' + mainImg + '" alt="' + product.name + '" class="product-detail-main-img" ' +
+            'onerror="this.src=\'images/Products images/RetailHeroShots/RetailHero1.jpg\'">' +
+            '<div class="product-thumb-strip">' + thumbsHTML + '</div>' +
+            '</div>' +
+
+            // RIGHT: Info
+            '<div class="col-lg-7 col-md-12">' +
+            '<div class="product-info-panel">' +
+            '<span class="product-category-badge">' + catLabel + '</span>' +
+            '<h2>' + product.name + '</h2>' +
+            '<div class="rating-bx m-b5">' + stars + ' <span style="font-size:13px;color:#999;margin-left:5px;">(4.8 / 5.0)</span></div>' +
+            '<div class="product-detail-price">$' + product.price.toFixed(2) + '</div>' +
+            '<p class="product-detail-desc">' + product.description + '</p>' +
+
+            '<table class="product-detail-specs-table">' +
+            '<tr><td>Skin Type</td><td>' + product.skinType + '</td></tr>' +
+            '<tr><td>Size</td><td>' + product.size + '</td></tr>' +
+            '<tr><td>Category</td><td>' + catLabel + '</td></tr>' +
+            '<tr><td>Stock</td><td><span style="color:#4caf50;"><i class="fa fa-check-circle"></i> In Stock</span></td></tr>' +
+            '</table>' +
+
+            '<div class="qty-control">' +
+            '<label for="detail-qty">Qty:</label>' +
+            '<input type="number" id="detail-qty" value="1" min="1" max="20">' +
+            '</div>' +
+
+            '<div class="detail-action-btns">' +
+            '<button class="site-button" id="add-to-cart-btn" onclick="handleAddToCart(\'' + product.id + '\',\'' + product.name.replace(/'/g, "\\'") + '\',' + product.price + ',\'' + mainImg + '\')">' +
+            '<i class="fa fa-cart-plus m-r5"></i> ADD TO CART' +
+            '</button>' +
+            '<a href="contact-1.html" class="site-button-secondry">' +
+            '<i class="fa fa-phone m-r5"></i> CONSULT AN ESTHETICIAN' +
+            '</a>' +
+            '</div>' +
+
+            '<p style="font-size:12px;color:#aaa;"><i class="fa fa-truck m-r5"></i>Free shipping on orders over $75 | <i class="fa fa-lock m-r5"></i>Secure checkout</p>' +
+            '</div>' +
+            '</div>' +
+            '</div>' + // end row
+
+            // TABS
+            '<div class="row m-t40">' +
+            '<div class="col-md-12">' +
+            '<div class="product-tabs">' +
+            '<ul class="nav nav-tabs" role="tablist">' +
+            '<li class="active"><a href="#tab-description" data-toggle="tab">Description</a></li>' +
+            '<li><a href="#tab-ingredients" data-toggle="tab">Ingredients & How To Use</a></li>' +
+            '<li><a href="#tab-reviews" data-toggle="tab">Reviews (12)</a></li>' +
+            '</ul>' +
+            '<div class="tab-content product-tab-content">' +
+
+            // Description tab
+            '<div class="tab-pane active" id="tab-description">' +
+            '<h4 class="m-b15">About ' + product.name + '</h4>' +
+            '<p>' + product.description + '</p>' +
+            '<h5 class="m-t20 m-b10">Key Benefits</h5>' +
+            '<ul class="list-check secondry">' +
+            product.benefits.split(',').map(function(b){ return '<li>' + b.trim() + '</li>'; }).join('') +
+            '</ul>' +
+            '</div>' +
+
+            // Ingredients tab
+            '<div class="tab-pane" id="tab-ingredients">' +
+            '<div class="row">' +
+            '<div class="col-md-6">' +
+            '<h5 class="m-b10">Key Ingredients</h5>' +
+            '<p>' + product.ingredients + '</p>' +
+            '</div>' +
+            '<div class="col-md-6">' +
+            '<h5 class="m-b10">How To Use</h5>' +
+            '<p>' + product.howToUse + '</p>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+
+            // Reviews tab
+            '<div class="tab-pane" id="tab-reviews">' +
+            '<div class="m-b20">' +
+            '<div class="bdr-1 bdr-gray p-a20 m-b15" style="border-radius:4px;">' +
+            '<div class="rating-bx m-b5"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>' +
+            '<p><strong>Sarah M.</strong> — <em style="color:#999;">Verified Purchase</em></p>' +
+            '<p>"Absolutely love this product! After consistently using it for 3 weeks I noticed a significant improvement in my skin. My esthetician at Wu Spa recommended it and I\'m so glad she did!"</p>' +
+            '</div>' +
+            '<div class="bdr-1 bdr-gray p-a20 m-b15" style="border-radius:4px;">' +
+            '<div class="rating-bx m-b5"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></div>' +
+            '<p><strong>Jennifer R.</strong> — <em style="color:#999;">Verified Purchase</em></p>' +
+            '<p>"Such a high quality product. I\'ve tried many similar ones but Skin Script is truly professional grade. You can feel the difference immediately. Highly recommend purchasing through Wu Spa."</p>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+
+            '</div>' + // tab-content
+            '</div>' + // product-tabs
+            '</div>' +
+            '</div>'; // end row
+
+        document.getElementById('product-detail-content').innerHTML = html;
+    }
+
+    /* =============================================
+       RENDER RELATED PRODUCTS
+    ============================================= */
+    function renderRelated(product) {
+        var related = getRelated(product, 4);
+        var html = '';
+        related.forEach(function (p) {
+            var imgSrc = p.images[0];
+            if (imgSrc.slice(-1) === '/') imgSrc = 'images/Products images/RetailHeroShots/RetailHero1.jpg';
+            html += '<div class="col-lg-3 col-md-6 col-sm-6 m-b20">' +
+                '<div class="related-product-card">' +
+                '<a href="product-detail.html?product=' + p.id + '">' +
+                '<img class="rpc-img" src="' + imgSrc + '" alt="' + p.name + '" onerror="this.src=\'images/Products images/RetailHeroShots/RetailHero1.jpg\'">' +
+                '</a>' +
+                '<div class="rpc-info">' +
+                '<h5><a href="product-detail.html?product=' + p.id + '">' + p.name + '</a></h5>' +
+                '<div class="rpc-price">$' + p.price.toFixed(2) + '</div>' +
+                '<button class="site-button btn-sm btn-block" onclick="WuSpaCart.addToCart(\'' + p.id + '\',\'' + p.name.replace(/'/g,"\\'") + '\',' + p.price + ',\'' + imgSrc + '\');">' +
+                '<i class="fa fa-cart-plus m-r5"></i>Add to Cart' +
+                '</button>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+        });
+        document.getElementById('related-products-grid').innerHTML = html;
+    }
+
+    /* =============================================
+       SWITCH ACTIVE THUMBNAIL
+    ============================================= */
+    function switchDetailImage(el, src) {
+        document.getElementById('detail-main-image').src = src;
+        document.querySelectorAll('.product-thumb-strip img').forEach(function (img) {
+            img.classList.remove('active');
+        });
+        el.classList.add('active');
+    }
+
+    /* =============================================
+       ADD TO CART (respects qty)
+    ============================================= */
+    function handleAddToCart(id, name, price, image) {
+        var qtyEl = document.getElementById('detail-qty');
+        var qty = qtyEl ? Math.max(1, parseInt(qtyEl.value) || 1) : 1;
+        WuSpaCart.addToCart(id, name, price, image, qty);
+    }
+
+    /* =============================================
+       PAGE INIT — READ URL PARAM
+    ============================================= */
+    (function init() {
+        var params = new URLSearchParams(window.location.search);
+        var productId = params.get('product');
+        var product = productId ? getProductById(productId) : null;
+
+        if (!product) {
+            // Show not-found message
+            document.getElementById('product-detail-content').innerHTML =
+                '<div class="not-found-box">' +
+                '<i class="fa fa-exclamation-circle fa-3x m-b20" style="color:#EC5598;opacity:0.5;"></i>' +
+                '<h3>Product Not Found</h3>' +
+                '<p>The product you\'re looking for doesn\'t exist or may have been moved.</p>' +
+                '<a href="product.html" class="site-button m-t15"><i class="fa fa-arrow-left m-r5"></i> Back to All Products</a>' +
+                '</div>';
+            document.getElementById('related-products-grid').innerHTML = '';
+            return;
+        }
+
+        renderDetail(product);
+        renderRelated(product);
+    })();
+    </script>
+
+</body>
+
+</html>

@@ -99,6 +99,13 @@ var HEADER_4_CONTENT = `
                                     <a href="gallery-grid-1.html">Gallery</a>
                                 </li>
                                 <li class="has-child">
+                                    <a href="product.html">Shop <i class="fa fa-chevron-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="product.html">All Products</a></li>
+                                        <li><a href="shopping-cart.html"><i class="fa fa-shopping-cart" style="margin-right:5px;"></i>View Cart</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-child">
                                     <a href="javascript:;">Area<i class="fa fa-chevron-down"></i></a>
                                     <ul class="sub-menu">
                                         <li><a href="area-mt-holly-nc.html">Mt Holly, NC</a></li>
@@ -124,11 +131,11 @@ var HEADER_4_CONTENT = `
                                 <a href="#search" class="site-search-btn"><i class="fa fa-search"></i></a>
                             </div>
                             <div class="extra-cell">
-                                <a href="javascript:;" class="wt-cart cart-btn" title="Your Cart">
+                                <a href="shopping-cart.html" class="wt-cart cart-btn" title="Your Cart">
                                     <span class="link-inner">
                                         <span class="woo-cart-total"> </span>
                                         <span class="woo-cart-count">
-                                            <span class="shopping-bag wcmenucart-count ">4</span>
+                                            <span class="shopping-bag wcmenucart-count">0</span>
                                         </span>
                                     </span>
                                 </a>
@@ -183,8 +190,8 @@ var HEADER_4_CONTENT = `
                                             <h5 class="pull-right m-a0">$114.95</h5>
                                         </div>
                                         <div class="nav-cart-action p-a15 clearfix">
-                                            <button class="site-button  btn-block m-b15 " type="button">View Cart</button>
-                                            <button class="site-button  btn-block" type="button">Checkout </button>
+                                            <a href="shopping-cart.html" class="site-button btn-block m-b15" style="display:block;text-align:center;"><i class="fa fa-shopping-cart m-r5"></i>View Cart</a>
+                                            <a href="checkout.html" class="site-button btn-block" style="display:block;text-align:center;"><i class="fa fa-lock m-r5"></i>Checkout</a>
                                         </div>
                                     </div>
                                 </div>

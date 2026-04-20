@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="checkout Wu Spa, order skincare Charlotte NC, Skin Script products order">
+    <meta name="author" content="Wu Spa">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Complete your Skin Script skincare order at Wu Spa Charlotte NC. Secure checkout with personal attention from our estheticians.">
+
+    <!-- FAVICONS ICON -->
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+
+    <!-- PAGE TITLE -->
+    <title>Checkout | Wu Spa Charlotte NC</title>
+
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/flaticon.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="css/magnific-popup.min.css">
+    <link rel="stylesheet" type="text/css" href="css/loader.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" class="skin" href="css/skin/skin-1.css">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <style>
+        /* ---- Checkout Page Styles ---- */
+        .checkout-step-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 0;
+        }
+        .checkout-step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #bbb;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .checkout-step.active { color: #EC5598; }
+        .checkout-step .step-num {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #eee;
+            color: #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .checkout-step.active .step-num { background: #EC5598; color: #fff; }
+        .checkout-step.done .step-num { background: #4caf50; color: #fff; }
+        .checkout-step.done { color: #4caf50; }
+        .step-line { width: 60px; height: 2px; background: #eee; }
+        .step-line.done { background: #4caf50; }
+
+        .checkout-panel {
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+        .checkout-panel h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #EC5598;
+        }
+        .form-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .form-group .form-control {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            height: 44px;
+            font-size: 14px;
+            color: #333;
+            padding: 0 14px;
+            transition: border-color 0.2s;
+        }
+        .form-group .form-control:focus {
+            border-color: #EC5598;
+            box-shadow: 0 0 0 3px rgba(236,85,152,0.08);
+            outline: none;
+        }
+        .form-group textarea.form-control {
+            height: auto;
+            padding: 12px 14px;
+        }
+        .field-required { color: #EC5598; margin-left: 2px; }
+
+        /* Order Review Table */
+        .order-review-table { width: 100%; font-size: 14px; }
+        .order-review-table tr { border-bottom: 1px solid #f5f5f5; }
+        .order-review-table td { padding: 10px 8px; vertical-align: middle; }
+        .order-review-table td:first-child { width: 60px; }
+        .order-review-table td:last-child { text-align: right; font-weight: 700; color: #EC5598; }
+        .order-review-img { width: 50px; height: 50px; object-fit: cover; border-radius: 3px; border: 1px solid #eee; }
+        .order-review-name { font-weight: 600; font-size: 13px; }
+        .order-review-name small { display:block; color:#aaa; font-size:11px; font-weight:400; }
+
+        /* Summary */
+        .order-total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .order-total-row.grand-total {
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            border-top: 2px solid #EC5598;
+            margin-top: 8px;
+            padding-top: 14px;
+        }
+        .order-total-row.grand-total span:last-child { color: #EC5598; }
+
+        /* Place Order button */
+        .place-order-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        /* Trust badges */
+        .trust-badges {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+        .trust-badge {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .trust-badge i { color: #EC5598; }
+
+        /* Empty checkout redirect */
+        .empty-checkout-box {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .empty-checkout-box .empty-icon {
+            font-size: 60px;
+            color: #EC5598;
+            opacity: 0.25;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        /* Thank You state */
+        #thank-you-section {
+            display: none;
+        }
+        .thank-you-box {
+            text-align: center;
+            padding: 60px 30px;
+        }
+        .thank-you-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #EC5598, #da4386);
+            color: #fff;
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            box-shadow: 0 8px 25px rgba(236,85,152,0.3);
+        }
+        .thank-you-box h2 { font-size: 28px; font-weight: 700; color: #222; margin-bottom: 12px; }
+        .thank-you-box p { font-size: 15px; color: #666; line-height: 1.8; margin-bottom: 20px; }
+        .order-reference {
+            display: inline-block;
+            background: #fdf7fa;
+            border: 1px solid #EC5598;
+            border-radius: 4px;
+            padding: 10px 25px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #EC5598;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+        .next-steps-list {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            max-width: 420px;
+            margin: 0 auto 30px;
+        }
+        .next-steps-list li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #555;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .next-steps-list li i { color: #EC5598; width: 16px; }
+
+        /* Validation */
+        .form-control.is-invalid { border-color: #e53935; }
+        .invalid-feedback { color: #e53935; font-size: 12px; display: none; margin-top: 4px; }
+        .form-control.is-invalid + .invalid-feedback { display: block; }
+
+        @media (max-width: 767px) {
+            .checkout-panel { padding: 20px 15px; }
+        }
+    </style>
+</head>
+
+<body id="bg">
+    <div class="page-wraper">
+
+        <!-- HEADER START -->
+        <div id="site-header-placeholder"></div>
+        <!-- HEADER END -->
+
+        <!-- CONTENT START -->
+        <div class="page-content bg-white">
+
+            <!-- INNER PAGE BANNER -->
+            <div class="wt-bnr-inr overlay-wraper" style="background-image:url('images/Products images/RetailHeroShots/RetailHero2.jpg');">
+                <div class="overlay-main bg-black opacity-07"></div>
+                <div class="container">
+                    <div class="wt-bnr-inr-entry">
+                        <h1 class="text-white">Secure Checkout</h1>
+                        <p class="text-white m-t10">Complete your Wu Spa Skin Script order</p>
+                    </div>
+                </div>
+            </div>
+            <!-- INNER PAGE BANNER END -->
+
+            <!-- BREADCRUMB ROW -->
+            <div class="bg-gray-light p-tb20">
+                <div class="container">
+                    <ul class="wt-breadcrumb breadcrumb-style-2">
+                        <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="shopping-cart.html">Cart</a></li>
+                        <li>Checkout</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- BREADCRUMB ROW END -->
+
+            <!-- CHECKOUT CONTENT -->
+            <div class="section-full p-t60 p-b60">
+                <div class="container">
+
+                    <!-- STEP INDICATOR -->
+                    <div class="checkout-step-indicator" id="step-indicator">
+                        <div class="checkout-step done" id="step1-ind">
+                            <div class="step-num"><i class="fa fa-check"></i></div>
+                            <span>Cart</span>
+                        </div>
+                        <div class="step-line done"></div>
+                        <div class="checkout-step active" id="step2-ind">
+                            <div class="step-num">2</div>
+                            <span>Details</span>
+                        </div>
+                        <div class="step-line" id="step-line-2"></div>
+                        <div class="checkout-step" id="step3-ind">
+                            <div class="step-num">3</div>
+                            <span>Confirm</span>
+                        </div>
+                    </div>
+
+                    <!-- CHECKOUT FORM SECTION -->
+                    <div id="checkout-section">
+                        <div id="checkout-empty-msg" style="display:none;">
+                            <div class="empty-checkout-box">
+                                <i class="fa fa-shopping-cart empty-icon"></i>
+                                <h3>Your cart is empty</h3>
+                                <p>Please add products to your cart before checking out.</p>
+                                <a href="product.html" class="site-button"><i class="fa fa-arrow-left m-r5"></i> Browse Products</a>
+                            </div>
+                        </div>
+
+                        <div id="checkout-form-row" class="row" style="display:none;">
+
+                            <!-- LEFT: Customer Details -->
+                            <div class="col-lg-7 col-md-12 m-b30">
+                                <form id="checkout-form" novalidate>
+
+                                    <!-- Contact Info -->
+                                    <div class="checkout-panel">
+                                        <h4><i class="fa fa-user m-r8" style="color:#EC5598;"></i> Your Information</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>First Name <span class="field-required">*</span></label>
+                                                    <input type="text" id="co-first-name" class="form-control" placeholder="Jane" required>
+                                                    <div class="invalid-feedback">Please enter your first name.</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Last Name <span class="field-required">*</span></label>
+                                                    <input type="text" id="co-last-name" class="form-control" placeholder="Smith" required>
+                                                    <div class="invalid-feedback">Please enter your last name.</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Email Address <span class="field-required">*</span></label>
+                                                    <input type="email" id="co-email" class="form-control" placeholder="your@email.com" required>
+                                                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Phone Number <span class="field-required">*</span></label>
+                                                    <input type="tel" id="co-phone" class="form-control" placeholder="(980) 000-0000" required>
+                                                    <div class="invalid-feedback">Please enter your phone number.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- How to Receive -->
+                                    <div class="checkout-panel">
+                                        <h4><i class="fa fa-truck m-r8" style="color:#EC5598;"></i> How Would You Like Your Order?</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="bdr-1 bdr-gray p-a15" style="border-radius:4px;cursor:pointer;display:block;margin-bottom:10px;">
+                                                    <input type="radio" name="order-method" value="pickup" checked style="margin-right:8px;">
+                                                    <strong>In-Spa Pickup</strong>
+                                                    <small style="display:block;color:#999;margin-top:3px;">Pick up at Wu Spa — 2750 E W.T. Harris Blvd, Charlotte, NC</small>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="bdr-1 bdr-gray p-a15" style="border-radius:4px;cursor:pointer;display:block;margin-bottom:10px;">
+                                                    <input type="radio" name="order-method" value="ship" style="margin-right:8px;">
+                                                    <strong>Ship to Me</strong>
+                                                    <small style="display:block;color:#999;margin-top:3px;">We'll contact you to arrange shipping details</small>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Notes -->
+                                    <div class="checkout-panel">
+                                        <h4><i class="fa fa-comment m-r8" style="color:#EC5598;"></i> Special Notes <small style="font-weight:400;color:#aaa;font-size:13px;">(Optional)</small></h4>
+                                        <div class="form-group">
+                                            <textarea id="co-notes" class="form-control" rows="4" placeholder="Any special requests, skin concerns, or questions for our esthetician?"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Submit -->
+                                    <button type="submit" class="site-button place-order-btn" id="place-order-btn">
+                                        <i class="fa fa-paper-plane m-r8"></i> Place My Order
+                                    </button>
+
+                                    <div class="trust-badges m-t15">
+                                        <div class="trust-badge"><i class="fa fa-lock"></i> Secure</div>
+                                        <div class="trust-badge"><i class="fa fa-shield"></i> Privacy Protected</div>
+                                        <div class="trust-badge"><i class="fa fa-phone"></i> (980) 222-1633</div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- RIGHT: Order Review -->
+                            <div class="col-lg-5 col-md-12">
+                                <div class="checkout-panel">
+                                    <h4><i class="fa fa-list m-r8" style="color:#EC5598;"></i> Order Summary</h4>
+                                    <table class="order-review-table" id="checkout-order-table">
+                                        <!-- Filled by JS -->
+                                    </table>
+                                    <div style="margin-top:16px;">
+                                        <div class="order-total-row"><span>Subtotal</span><span id="co-subtotal">—</span></div>
+                                        <div class="order-total-row"><span>Shipping</span><span id="co-shipping">—</span></div>
+                                        <div class="order-total-row grand-total"><span>Total</span><span id="co-total">—</span></div>
+                                    </div>
+                                    <p style="font-size:12px;color:#aaa;margin-top:14px;"><i class="fa fa-info-circle m-r5"></i>Final pricing confirmed via phone/email. Pickup available same day after confirmation.</p>
+                                </div>
+
+                                <!-- Spa contact info -->
+                                <div class="checkout-panel" style="background:#fdf7fa;">
+                                    <h4><i class="fa fa-map-marker m-r8" style="color:#EC5598;"></i> Wu Spa Location</h4>
+                                    <p style="font-size:13px;color:#666;margin:0;">
+                                        <strong>2750 E W.T. Harris Blvd</strong><br>
+                                        Charlotte, NC 28213<br>
+                                        <i class="fa fa-phone m-r5" style="color:#EC5598;"></i>(980) 222-1633<br>
+                                        <i class="fa fa-clock-o m-r5" style="color:#EC5598;"></i>Mon–Sat 9am–7pm
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div><!-- end form row -->
+                    </div><!-- end checkout-section -->
+
+                    <!-- THANK YOU SECTION (shown after submit) -->
+                    <div id="thank-you-section">
+                        <div class="thank-you-box">
+                            <div class="thank-you-icon">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <h2>Order Received — Thank You!</h2>
+                            <p>We've received your order request and will contact you within <strong>24 hours</strong> to confirm details and arrange payment.</p>
+                            <div class="order-reference" id="order-ref-number">Order #WU-000000</div>
+                            <ul class="next-steps-list">
+                                <li><i class="fa fa-envelope"></i> Check your email for a copy of your order details</li>
+                                <li><i class="fa fa-phone"></i> Our team will call you to confirm availability</li>
+                                <li><i class="fa fa-map-marker"></i> Pick up at Wu Spa or arrange shipping with us</li>
+                                <li><i class="fa fa-leaf"></i> Your Skin Script products will be ready for you!</li>
+                            </ul>
+                            <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+                                <a href="product.html" class="site-button-secondry">
+                                    <i class="fa fa-shopping-bag m-r5"></i> Continue Shopping
+                                </a>
+                                <a href="index.html" class="site-button">
+                                    <i class="fa fa-home m-r5"></i> Return Home
+                                </a>
+                            </div>
+                        </div>
+                    </div><!-- end thank you -->
+
+                </div><!-- end container -->
+            </div><!-- end section -->
+
+        </div>
+        <!-- CONTENT END -->
+
+        <!-- FOOTER START -->
+        <div id="site-footer-placeholder"></div>
+        <!-- FOOTER END -->
+
+        <!-- BUTTON TOP -->
+        <button class="scroltop"><span class="iconmoon-house relative" id="btn-vibrate"></span>Top</button>
+
+    </div>
+
+    <!-- LOADING AREA -->
+    <div class="loading-area">
+        <div class="loading-box"></div>
+        <div class="loading-pic">
+            <div class="cssload-container">
+                <div class="cssload-progress cssload-float cssload-shadow">
+                    <div class="cssload-progress-item"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/header-content.js"></script>
+    <script src="js/header-loader.js"></script>
+    <script src="js/footer-content.js"></script>
+    <script src="js/footer-loader.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="js/magnific-popup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/counterup.min.js"></script>
+    <script src="js/waypoints-sticky.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/scrolla.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/shortcode.js"></script>
+
+    <script>
+    /* =============================================
+       CHECKOUT PAGE LOGIC
+    ============================================= */
+    var FREE_SHIPPING_THRESHOLD = 75;
+
+    function initCheckout() {
+        var cart = WuSpaCart.getCart();
+
+        if (cart.length === 0) {
+            document.getElementById('checkout-empty-msg').style.display = 'block';
+            document.getElementById('checkout-form-row').style.display = 'none';
+            return;
+        }
+
+        document.getElementById('checkout-form-row').style.display = '';
+        document.getElementById('checkout-empty-msg').style.display = 'none';
+
+        // Populate order review table
+        var tableBody = document.getElementById('checkout-order-table');
+        var rowsHTML = '';
+        cart.forEach(function (item) {
+            rowsHTML +=
+                '<tr>' +
+                '<td><img class="order-review-img" src="' + item.image + '" alt="' + item.name + '" onerror="this.src=\'images/Products images/RetailHeroShots/RetailHero1.jpg\'"></td>' +
+                '<td class="order-review-name">' + item.name + '<small>Qty: ' + item.qty + ' × $' + item.price.toFixed(2) + '</small></td>' +
+                '<td>$' + (item.price * item.qty).toFixed(2) + '</td>' +
+                '</tr>';
+        });
+        tableBody.innerHTML = rowsHTML;
+
+        var subtotal = WuSpaCart.getTotal();
+        var shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 'FREE' : 'TBD';
+        document.getElementById('co-subtotal').textContent = '$' + subtotal.toFixed(2);
+        document.getElementById('co-shipping').textContent = shipping;
+        document.getElementById('co-total').textContent = '$' + subtotal.toFixed(2) + (shipping !== 'FREE' ? ' + shipping' : '');
+    }
+
+    /* =============================================
+       FORM VALIDATION
+    ============================================= */
+    function validateForm() {
+        var valid = true;
+        var fields = [
+            { id: 'co-first-name', label: 'First name' },
+            { id: 'co-last-name', label: 'Last name' },
+            { id: 'co-email', label: 'Email', type: 'email' },
+            { id: 'co-phone', label: 'Phone' }
+        ];
+
+        fields.forEach(function (f) {
+            var el = document.getElementById(f.id);
+            var val = el.value.trim();
+            var ok = true;
+            if (!val) ok = false;
+            if (f.type === 'email' && val) {
+                ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+            }
+            el.classList.toggle('is-invalid', !ok);
+            if (!ok) valid = false;
+        });
+
+        return valid;
+    }
+
+    /* =============================================
+       BUILD ORDER EMAIL BODY
+    ============================================= */
+    function buildOrderEmail(firstName, lastName, email, phone, method, notes, cart) {
+        var subject = 'New Skin Script Order — ' + firstName + ' ' + lastName;
+        var body = 'NEW ORDER from Wu Spa website\n';
+        body += '============================\n\n';
+        body += 'CUSTOMER DETAILS\n';
+        body += 'Name: ' + firstName + ' ' + lastName + '\n';
+        body += 'Email: ' + email + '\n';
+        body += 'Phone: ' + phone + '\n';
+        body += 'Order Method: ' + (method === 'pickup' ? 'In-Spa Pickup' : 'Ship to Customer') + '\n';
+        if (notes) body += 'Notes: ' + notes + '\n';
+        body += '\nORDER ITEMS\n';
+        body += '-----------\n';
+        cart.forEach(function (item) {
+            body += '• ' + item.name + ' x' + item.qty + ' @ $' + item.price.toFixed(2) + ' = $' + (item.price * item.qty).toFixed(2) + '\n';
+        });
+        body += '\nSUBTOTAL: $' + WuSpaCart.getTotal().toFixed(2) + '\n';
+        body += 'SHIPPING: ' + (WuSpaCart.getTotal() >= FREE_SHIPPING_THRESHOLD ? 'FREE' : 'To be arranged') + '\n';
+        body += '\n============================\n';
+        body += 'Sent from the Wu Spa website checkout form.';
+        return { subject: subject, body: body };
+    }
+
+    /* =============================================
+       GENERATE ORDER REFERENCE
+    ============================================= */
+    function generateOrderRef() {
+        var now = new Date();
+        return 'WU-' + now.getFullYear().toString().slice(-2) +
+            String(now.getMonth() + 1).padStart(2, '0') +
+            String(now.getDate()).padStart(2, '0') + '-' +
+            Math.floor(1000 + Math.random() * 9000);
+    }
+
+    /* =============================================
+       FORM SUBMIT HANDLER
+    ============================================= */
+    document.addEventListener('DOMContentLoaded', function () {
+        initCheckout();
+
+        var form = document.getElementById('checkout-form');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            if (!validateForm()) {
+                // Scroll to first error
+                var firstErr = form.querySelector('.is-invalid');
+                if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            var firstName = document.getElementById('co-first-name').value.trim();
+            var lastName  = document.getElementById('co-last-name').value.trim();
+            var email     = document.getElementById('co-email').value.trim();
+            var phone     = document.getElementById('co-phone').value.trim();
+            var method    = document.querySelector('input[name="order-method"]:checked').value;
+            var notes     = document.getElementById('co-notes').value.trim();
+            var cart      = WuSpaCart.getCart();
+
+            var emailData = buildOrderEmail(firstName, lastName, email, phone, method, notes, cart);
+            var mailtoLink = 'mailto:wuspacharlotte@gmail.com' +
+                '?subject=' + encodeURIComponent(emailData.subject) +
+                '&body=' + encodeURIComponent(emailData.body);
+
+            // Open email client
+            window.location.href = mailtoLink;
+
+            // Generate order reference
+            var ref = generateOrderRef();
+
+            // Clear cart
+            WuSpaCart.clearCart();
+
+            // Show thank-you section after a brief delay (let mailto open)
+            setTimeout(function () {
+                // Update steps
+                document.getElementById('step2-ind').classList.add('done');
+                document.getElementById('step2-ind').classList.remove('active');
+                document.getElementById('step2-ind').querySelector('.step-num').innerHTML = '<i class="fa fa-check"></i>';
+                document.getElementById('step-line-2').classList.add('done');
+                document.getElementById('step3-ind').classList.add('active');
+                document.getElementById('step3-ind').querySelector('.step-num').textContent = '3';
+
+                // Show thank you
+                document.getElementById('checkout-section').style.display = 'none';
+                document.getElementById('thank-you-section').style.display = 'block';
+                document.getElementById('order-ref-number').textContent = 'Order #' + ref;
+
+                // Scroll top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 800);
+        });
+    });
+    </script>
+
+</body>
+</html>
