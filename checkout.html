@@ -363,18 +363,59 @@
                                         <h4><i class="fa fa-truck m-r8" style="color:#EC5598;"></i> How Would You Like Your Order?</h4>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label class="bdr-1 bdr-gray p-a15" style="border-radius:4px;cursor:pointer;display:block;margin-bottom:10px;">
-                                                    <input type="radio" name="order-method" value="pickup" checked style="margin-right:8px;">
+                                                <label class="bdr-1 bdr-gray p-a15" style="border-radius:4px;cursor:pointer;display:block;margin-bottom:10px;" id="label-pickup">
+                                                    <input type="radio" name="order-method" value="pickup" checked style="margin-right:8px;" onchange="toggleAddressFields(this)">
                                                     <strong>In-Spa Pickup</strong>
                                                     <small style="display:block;color:#999;margin-top:3px;">Pick up at Wu Spa — 2750 E W.T. Harris Blvd, Charlotte, NC</small>
                                                 </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="bdr-1 bdr-gray p-a15" style="border-radius:4px;cursor:pointer;display:block;margin-bottom:10px;">
-                                                    <input type="radio" name="order-method" value="ship" style="margin-right:8px;">
+                                                <label class="bdr-1 bdr-gray p-a15" style="border-radius:4px;cursor:pointer;display:block;margin-bottom:10px;" id="label-ship">
+                                                    <input type="radio" name="order-method" value="ship" style="margin-right:8px;" onchange="toggleAddressFields(this)">
                                                     <strong>Ship to Me</strong>
                                                     <small style="display:block;color:#999;margin-top:3px;">We'll contact you to arrange shipping details</small>
                                                 </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Shipping Address (Hidden by default) -->
+                                    <div class="checkout-panel" id="shipping-address-panel" style="display:none;">
+                                        <h4><i class="fa fa-map-marker m-r8" style="color:#EC5598;"></i> Shipping Address</h4>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Street Address <span class="field-required">*</span></label>
+                                                    <input type="text" id="co-address-1" class="form-control" placeholder="House number and street name">
+                                                    <div class="invalid-feedback">Please enter your street address.</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Apartment, suite, unit, etc. <small style="font-weight:400;color:#aaa;">(optional)</small></label>
+                                                    <input type="text" id="co-address-2" class="form-control" placeholder="Apartment, suite, unit, etc. (optional)">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Town / City <span class="field-required">*</span></label>
+                                                    <input type="text" id="co-city" class="form-control" placeholder="Town / City">
+                                                    <div class="invalid-feedback">Please enter your city.</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>State <span class="field-required">*</span></label>
+                                                    <input type="text" id="co-state" class="form-control" placeholder="NC">
+                                                    <div class="invalid-feedback">State is required.</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>ZIP Code <span class="field-required">*</span></label>
+                                                    <input type="text" id="co-zip" class="form-control" placeholder="ZIP code">
+                                                    <div class="invalid-feedback">ZIP is required.</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -389,8 +430,12 @@
 
                                     <!-- Submit -->
                                     <button type="submit" class="site-button place-order-btn" id="place-order-btn">
-                                        <i class="fa fa-paper-plane m-r8"></i> Place My Order
+                                        <i class="fa fa-paper-plane m-r8"></i> <span id="btn-text">Place My Order</span>
                                     </button>
+
+                                    <div id="checkout-error-msg" style="display:none; color:#e53935; text-align:center; margin-top:15px; font-weight:600;">
+                                        <i class="fa fa-exclamation-triangle"></i> <span id="error-text">Something went wrong. Please check your info or try again.</span>
+                                    </div>
 
                                     <div class="trust-badges m-t15">
                                         <div class="trust-badge"><i class="fa fa-lock"></i> Secure</div>
@@ -530,7 +575,7 @@
             rowsHTML +=
                 '<tr>' +
                 '<td><img class="order-review-img" src="' + item.image + '" alt="' + item.name + '" onerror="this.src=\'images/Products images/RetailHeroShots/RetailHero1.jpg\'"></td>' +
-                '<td class="order-review-name">' + item.name + '<small>Qty: ' + item.qty + ' × $' + item.price.toFixed(2) + '</small></td>' +
+                '<td class="order-review-name">' + item.name + '<small>Qty: ' + item.qty + ' \u00D7 $' + item.price.toFixed(2) + '</small></td>' +
                 '<td>$' + (item.price * item.qty).toFixed(2) + '</td>' +
                 '</tr>';
         });
@@ -543,17 +588,39 @@
         document.getElementById('co-total').textContent = '$' + subtotal.toFixed(2) + (shipping !== 'FREE' ? ' + shipping' : '');
     }
 
+    function toggleAddressFields(radio) {
+        var panel = document.getElementById('shipping-address-panel');
+        if (radio.value === 'ship') {
+            panel.style.display = 'block';
+            document.getElementById('label-ship').style.borderColor = '#EC5598';
+            document.getElementById('label-pickup').style.borderColor = '#eee';
+        } else {
+            panel.style.display = 'none';
+            document.getElementById('label-ship').style.borderColor = '#eee';
+            document.getElementById('label-pickup').style.borderColor = '#EC5598';
+        }
+    }
+
     /* =============================================
        FORM VALIDATION
     ============================================= */
     function validateForm() {
         var valid = true;
+        var method = document.querySelector('input[name="order-method"]:checked').value;
+        
         var fields = [
             { id: 'co-first-name', label: 'First name' },
             { id: 'co-last-name', label: 'Last name' },
             { id: 'co-email', label: 'Email', type: 'email' },
             { id: 'co-phone', label: 'Phone' }
         ];
+
+        if (method === 'ship') {
+            fields.push({ id: 'co-address-1', label: 'Address' });
+            fields.push({ id: 'co-city', label: 'City' });
+            fields.push({ id: 'co-state', label: 'State' });
+            fields.push({ id: 'co-zip', label: 'ZIP' });
+        }
 
         fields.forEach(function (f) {
             var el = document.getElementById(f.id);
@@ -568,31 +635,6 @@
         });
 
         return valid;
-    }
-
-    /* =============================================
-       BUILD ORDER EMAIL BODY
-    ============================================= */
-    function buildOrderEmail(firstName, lastName, email, phone, method, notes, cart) {
-        var subject = 'New Skin Script Order — ' + firstName + ' ' + lastName;
-        var body = 'NEW ORDER from Wu Spa website\n';
-        body += '============================\n\n';
-        body += 'CUSTOMER DETAILS\n';
-        body += 'Name: ' + firstName + ' ' + lastName + '\n';
-        body += 'Email: ' + email + '\n';
-        body += 'Phone: ' + phone + '\n';
-        body += 'Order Method: ' + (method === 'pickup' ? 'In-Spa Pickup' : 'Ship to Customer') + '\n';
-        if (notes) body += 'Notes: ' + notes + '\n';
-        body += '\nORDER ITEMS\n';
-        body += '-----------\n';
-        cart.forEach(function (item) {
-            body += '• ' + item.name + ' x' + item.qty + ' @ $' + item.price.toFixed(2) + ' = $' + (item.price * item.qty).toFixed(2) + '\n';
-        });
-        body += '\nSUBTOTAL: $' + WuSpaCart.getTotal().toFixed(2) + '\n';
-        body += 'SHIPPING: ' + (WuSpaCart.getTotal() >= FREE_SHIPPING_THRESHOLD ? 'FREE' : 'To be arranged') + '\n';
-        body += '\n============================\n';
-        body += 'Sent from the Wu Spa website checkout form.';
-        return { subject: subject, body: body };
     }
 
     /* =============================================
@@ -617,55 +659,75 @@
             e.preventDefault();
 
             if (!validateForm()) {
-                // Scroll to first error
                 var firstErr = form.querySelector('.is-invalid');
                 if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 return;
             }
 
-            var firstName = document.getElementById('co-first-name').value.trim();
-            var lastName  = document.getElementById('co-last-name').value.trim();
-            var email     = document.getElementById('co-email').value.trim();
-            var phone     = document.getElementById('co-phone').value.trim();
-            var method    = document.querySelector('input[name="order-method"]:checked').value;
-            var notes     = document.getElementById('co-notes').value.trim();
-            var cart      = WuSpaCart.getCart();
+            var btn = document.getElementById('place-order-btn');
+            var btnText = document.getElementById('btn-text');
+            var errBox = document.getElementById('checkout-error-msg');
+            
+            // Set loading state
+            btn.disabled = true;
+            btnText.innerHTML = '<i class="fa fa-spinner fa-spin m-r5"></i> Processing...';
+            errBox.style.display = 'none';
 
-            var emailData = buildOrderEmail(firstName, lastName, email, phone, method, notes, cart);
-            var mailtoLink = 'mailto:wuspacharlotte@gmail.com' +
-                '?subject=' + encodeURIComponent(emailData.subject) +
-                '&body=' + encodeURIComponent(emailData.body);
+            var orderData = {
+                firstName: document.getElementById('co-first-name').value.trim(),
+                lastName:  document.getElementById('co-last-name').value.trim(),
+                email:     document.getElementById('co-email').value.trim(),
+                phone:     document.getElementById('co-phone').value.trim(),
+                method:    document.querySelector('input[name="order-method"]:checked').value,
+                address1:  document.getElementById('co-address-1') ? document.getElementById('co-address-1').value.trim() : '',
+                address2:  document.getElementById('co-address-2') ? document.getElementById('co-address-2').value.trim() : '',
+                city:      document.getElementById('co-city') ? document.getElementById('co-city').value.trim() : '',
+                state:     document.getElementById('co-state') ? document.getElementById('co-state').value.trim() : '',
+                zip:       document.getElementById('co-zip') ? document.getElementById('co-zip').value.trim() : '',
+                notes:     document.getElementById('co-notes').value.trim(),
+                cart:      WuSpaCart.getCart(),
+                orderRef:  generateOrderRef()
+            };
 
-            // Open email client
-            window.location.href = mailtoLink;
+            fetch('order-handler.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderData)
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    // Success
+                    WuSpaCart.clearCart();
+                    
+                    // Update steps
+                    document.getElementById('step2-ind').classList.add('done');
+                    document.getElementById('step2-ind').classList.remove('active');
+                    document.getElementById('step2-ind').querySelector('.step-num').innerHTML = '<i class="fa fa-check"></i>';
+                    document.getElementById('step-line-2').classList.add('done');
+                    document.getElementById('step3-ind').classList.add('active');
+                    document.getElementById('step3-ind').querySelector('.step-num').textContent = '3';
 
-            // Generate order reference
-            var ref = generateOrderRef();
-
-            // Clear cart
-            WuSpaCart.clearCart();
-
-            // Show thank-you section after a brief delay (let mailto open)
-            setTimeout(function () {
-                // Update steps
-                document.getElementById('step2-ind').classList.add('done');
-                document.getElementById('step2-ind').classList.remove('active');
-                document.getElementById('step2-ind').querySelector('.step-num').innerHTML = '<i class="fa fa-check"></i>';
-                document.getElementById('step-line-2').classList.add('done');
-                document.getElementById('step3-ind').classList.add('active');
-                document.getElementById('step3-ind').querySelector('.step-num').textContent = '3';
-
-                // Show thank you
-                document.getElementById('checkout-section').style.display = 'none';
-                document.getElementById('thank-you-section').style.display = 'block';
-                document.getElementById('order-ref-number').textContent = 'Order #' + ref;
-
-                // Scroll top
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 800);
+                    // Show thank you
+                    document.getElementById('checkout-section').style.display = 'none';
+                    document.getElementById('thank-you-section').style.display = 'block';
+                    document.getElementById('order-ref-number').textContent = 'Order #' + data.ref;
+                    
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    throw new Error(data.error || 'Server error');
+                }
+            })
+            .catch(function(err) {
+                btn.disabled = false;
+                btnText.textContent = 'Place My Order';
+                errBox.style.display = 'block';
+                document.getElementById('error-text').textContent = 'Error: ' + err.message + '. Please call us at (980) 222-1633 to place your order.';
+            });
         });
     });
     </script>
+
 
 </body>
 </html>

@@ -38,6 +38,50 @@ var HEADER_4_CONTENT = `
                     transform: translateX(-50%) !important;
                 }
             }
+
+            /* Cart Badge Premium Styling */
+            .wt-cart {
+                position: relative;
+                display: flex;
+                align-items: center;
+                text-decoration: none !important;
+            }
+            .woo-cart-count {
+                position: absolute;
+                top: -8px;
+                right: -10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .wcmenucart-count {
+                background-color: #EC5598;
+                color: #ffffff;
+                font-size: 11px;
+                font-weight: 700;
+                min-width: 18px;
+                height: 18px;
+                border-radius: 10px;
+                padding: 0 5px;
+                border: 2px solid #ffffff;
+                line-height: 14px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .wt-cart i {
+                font-size: 20px;
+                color: #333;
+                transition: color 0.3s;
+            }
+            .wt-cart:hover i {
+                color: #EC5598;
+            }
+            .nav-cart-items {
+                max-height: 350px;
+                overflow-y: auto;
+            }
         </style>
         <!-- HEADER START -->
         <header class="site-header header-style-3 mobile-sider-drawer-menu">
@@ -132,7 +176,7 @@ var HEADER_4_CONTENT = `
                             <div class="extra-cell">
                                 <a href="shopping-cart.html" class="wt-cart cart-btn" title="Your Cart">
                                     <span class="link-inner">
-                                        <span class="woo-cart-total"> </span>
+                                        <i class="fa fa-shopping-cart"></i>
                                         <span class="woo-cart-count">
                                             <span class="shopping-bag wcmenucart-count">0</span>
                                         </span>
@@ -143,50 +187,11 @@ var HEADER_4_CONTENT = `
                                     <div class="nav-cart-content">
                                         
                                         <div class="nav-cart-items p-a15">
-                                            <div class="nav-cart-item clearfix">
-                                                <div class="nav-cart-item-image">
-                                                    <a href="#"><img src="images/cart/pic-1.jpg" alt="p-1"></a>
-                                                </div>
-                                                <div class="nav-cart-item-desc">
-                                                    <a href="#">Safety helmet</a>
-                                                    <span class="nav-cart-item-price"><strong>2</strong> x $19.99</span>
-                                                    <a href="#" class="nav-cart-item-quantity">x</a>
-                                                </div>
-                                            </div>
-                                            <div class="nav-cart-item clearfix">
-                                                <div class="nav-cart-item-image">
-                                                    <a href="#"><img src="images/cart/pic-2.jpg" alt="p-2"></a>
-                                                </div>
-                                                <div class="nav-cart-item-desc">
-                                                    <a href="#">Hammer drill machine</a>
-                                                    <span class="nav-cart-item-price"><strong>1</strong> x $24.99</span>
-                                                    <a href="#" class="nav-cart-item-quantity">x</a>
-                                                </div>
-                                            </div>
-                                            <div class="nav-cart-item clearfix">
-                                                <div class="nav-cart-item-image">
-                                                    <a href="#"><img src="images/cart/pic-3.jpg" alt="p-1"></a>
-                                                </div>
-                                                <div class="nav-cart-item-desc">
-                                                    <a href="#">Safety helmet</a>
-                                                    <span class="nav-cart-item-price"><strong>2</strong> x $19.99</span>
-                                                    <a href="#" class="nav-cart-item-quantity">x</a>
-                                                </div>
-                                            </div>
-                                            <div class="nav-cart-item clearfix">
-                                                <div class="nav-cart-item-image">
-                                                    <a href="#"><img src="images/cart/pic-4.jpg" alt="p-2"></a>
-                                                </div>
-                                                <div class="nav-cart-item-desc">
-                                                    <a href="#">Hammer drill machine</a>
-                                                    <span class="nav-cart-item-price"><strong>1</strong> x $24.99</span>
-                                                    <a href="#" class="nav-cart-item-quantity">x</a>
-                                                </div>
-                                            </div>
+                                            <p class="text-center p-tb20">Loading cart...</p>
                                         </div>
                                         <div class="nav-cart-title p-tb10 p-lr15 clearfix">
-                                            <h4  class="pull-left m-a0">Subtotal:</h4>
-                                            <h5 class="pull-right m-a0">$114.95</h5>
+                                            <h4 class="pull-left m-a0">Subtotal:</h4>
+                                            <h5 class="pull-right m-a0">$0.00</h5>
                                         </div>
                                         <div class="nav-cart-action p-a15 clearfix">
                                             <a href="shopping-cart.html" class="site-button btn-block m-b15" style="display:block;text-align:center;"><i class="fa fa-shopping-cart m-r5"></i>View Cart</a>
