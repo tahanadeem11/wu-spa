@@ -1,75 +1,78 @@
 <?php
 /**
- * File Name: form-handler.php
- *
- * Process contact form to send mail
- *
+ * File Name: form-handler2.php
+ * Process contact form (with phone) and send email using PHPMailer via SMTP
  */
-if ( isset( $_POST['action'] ) ):
 
-    $name = filter_var( $_POST['username'], FILTER_SANITIZE_STRING );
-    $from_email = filter_var( $_POST['email'], FILTER_SANITIZE_EMAIL );
-    $phone = filter_var( $_POST['phone'], FILTER_SANITIZE_STRING );
-	$message = filter_var( $_POST['message'], FILTER_SANITIZE_STRING );
-	
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-    $to_email = "thewebmaxmail@gmail.com";    // To email address
-    $to_name = "thewebmax";
+require 'plugins/phpmailer/Exception.php';
+require 'plugins/phpmailer/PHPMailer.php';
+require 'plugins/phpmailer/SMTP.php';
 
-    $email_subject = 'You Have Received a Message From ' . $name . '.';
+// Check if action is set (added by custom.js)
+if (isset($_POST['action']) && $_POST['action'] == 'contactform'):
 
-    if ( ! empty( $name ) ) {
-        $email_subject = $name . '.';
-    }
+    // Sanitize input data
+    $name = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $from_email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
+    $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
 
-    $email_body = "You have Received a message from: " . $name . " <br/>";
-	
-	$email_body .= "Phone: " . $phone . " <br/>";
+    $to_email = "excellentwuwuhands@wu-spa.com"; // Primary recipient
+    
+    $mail = new PHPMailer(true);
 
-    $email_content = nl2br( $message ) . " <br/><br/>";
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host       = 'getmeonlocal.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'wu-spa@getmeonlocal.com';
+        $mail->Password   = 'PASScode123@#';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port       = 465;
 
-    $email_reply = 	"You can contact " . $name . " via email, " . $from_email ;
+        // Recipients
+        $mail->setFrom('wu-spa@getmeonlocal.com', 'Wu Spa Website');
+        $mail->addAddress($to_email, 'Wu Spa Admin');
+        $mail->addReplyTo($from_email, $name);
 
-    $prepared_message = $email_body . $email_content . $email_reply;
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = 'New Form Submission (Home Page): ' . $name;
+        
+        $email_body = "<h3>New Message from Wu Spa Website (Handled by Form 2)</h3>";
+        $email_body .= "<p><strong>Name:</strong> " . $name . "</p>";
+        $email_body .= "<p><strong>Email:</strong> " . $from_email . "</p>";
+        $email_body .= "<p><strong>Phone:</strong> " . $phone . "</p>";
+        $email_body .= "<p><strong>Message:</strong><br/>" . nl2br($message) . "</p>";
+        
+        $mail->Body = $email_body;
+        $mail->AltBody = "Name: $name\nEmail: $from_email\nPhone: $phone\n\nMessage:\n$message";
 
-    // You can consult https://github.com/eoghanobrien/php-simple-mail for more details
-    require 'class.simple_mail.php';
-
-    /* @var SimpleMail $mail */
-    $mail = new SimpleMail();
-    $mail->setTo( $to_email, $to_name )
-        ->setSubject( $email_subject )
-        ->setFrom( $from_email, $name )
-        ->addMailHeader( 'Reply-To', $from_email, $name )
-        ->addGenericHeader( 'X-Mailer', 'PHP/' . phpversion() )
-        ->addGenericHeader( 'Content-Type', 'text/html; charset="utf-8"' )
-        ->setMessage( $prepared_message );
-
-
-    $sent = $mail->send();
-
-    //echo $mail->debug();
-
-    if( $sent ) {
+        $mail->send();
+        
         echo json_encode(array(
             'success' => true,
             'message' => "Message Sent Successfully!"
         ));
-    } else {
+
+    } catch (Exception $e) {
         echo json_encode(array(
-                'success' => false,
-                'message' => "Server Error:  mail method failed!"
-            )
-        );
+            'success' => false,
+            'message' => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"
+        ));
     }
 
 else:
 
     echo json_encode(array(
-            'success' => false,
-            'message' => "Invalid Request !"
-        )
-    );
-endif;
+        'success' => false,
+        'message' => "Invalid Request!"
+    ));
 
+endif;
 die;

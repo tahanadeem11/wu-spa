@@ -60,8 +60,6 @@ var FOOTER_CONTENT = `
                                 <ul>
                                     <li><a href="service-massage-services.html">Massage Services</a></li>
                                     <li><a href="service-facial.html">Facial</a></li>
-                                    <li><a href="service-facial-peel.html">Facial Peel</a></li>
-                                    <li><a href="service-facial-massage.html">Facial Massage</a></li>
                                     <li><a href="service-spa.html">SPA</a></li>
                                     <li><a href="service-body-rub.html">Body Rub</a></li>
                                     <li><a href="service-skin-care.html">Skin Care</a></li>

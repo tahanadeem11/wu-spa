@@ -676,7 +676,7 @@ function masonryBox() {
 	
 		/* sending message */
 		jQuery.ajax({
-			url: 'https://thewebmax.org/spa/form-handler.php',
+			url: 'form-handler.php',
 			data: form.serialize() + "&action=contactform",
 			type: 'POST',
 			dataType: 'JSON',
@@ -702,7 +702,7 @@ function masonryBox() {
 	
 		/* sending message */
 		jQuery.ajax({
-			url: 'https://thewebmax.org/spa/form-handler2.php',
+			url: 'form-handler2.php',
 			data: form.serialize() + "&action=contactform",
 			type: 'POST',
 			dataType: 'JSON',

@@ -191,6 +191,28 @@
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
+        /* Category Section Headers */
+        .product-section-header {
+            margin: 30px 0 15px;
+            padding: 0 10px;
+        }
+        .product-section-header:first-child {
+            margin-top: 0;
+        }
+        .product-cat-heading {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .product-cat-divider {
+            height: 3px;
+            background: linear-gradient(to right, #EC5598, transparent);
+            border-radius: 2px;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 
@@ -737,6 +759,20 @@
     }
 
     /* =============================================
+       CATEGORY DISPLAY LABELS (ordered)
+    ============================================= */
+    var CATEGORY_ORDER = [
+        { key: 'moisturizer', label: 'Moisturizers' },
+        { key: 'cleanser',    label: 'Cleansers' },
+        { key: 'mask',        label: 'Masks' },
+        { key: 'serum',       label: 'Serums' },
+        { key: 'toner',       label: 'Toners' },
+        { key: 'exfoliant',   label: 'Exfoliants' },
+        { key: 'spf',         label: 'Sun Protection' },
+        { key: 'lip',         label: 'Lip Treatments' }
+    ];
+
+    /* =============================================
        INIT GRID & FILTER LOGIC
     ============================================= */
     function renderGrid(filter, searchTerm) {
@@ -744,14 +780,37 @@
         var html = '';
         var count = 0;
 
-        PRODUCTS.forEach(function (p) {
-            var catMatch = (filter === 'all' || p.category === filter);
-            var searchMatch = !searchTerm || p.name.toLowerCase().indexOf(searchTerm) !== -1;
-            if (catMatch && searchMatch) {
-                html += renderProductCard(p);
-                count++;
-            }
-        });
+        if (filter === 'all' && !searchTerm) {
+            // Grouped by category with section headers
+            CATEGORY_ORDER.forEach(function(cat) {
+                var catProducts = PRODUCTS.filter(function(p) { return p.category === cat.key; });
+                if (catProducts.length === 0) return;
+
+                // Section header spanning full width
+                html += '<div class="col-12 product-section-header">' +
+                    '<h4 class="product-cat-heading"><span class="site-text-primary">' + cat.label + '</span></h4>' +
+                    '<div class="product-cat-divider"></div>' +
+                    '</div>';
+
+                catProducts.forEach(function(p) {
+                    html += renderProductCard(p);
+                    count++;
+                });
+
+                // Clear float after each section
+                html += '<div class="col-12" style="padding:0;margin-bottom:10px;"></div>';
+            });
+        } else {
+            // Filtered view — flat grid, no headers
+            PRODUCTS.forEach(function (p) {
+                var catMatch = (filter === 'all' || p.category === filter);
+                var searchMatch = !searchTerm || p.name.toLowerCase().indexOf(searchTerm) !== -1;
+                if (catMatch && searchMatch) {
+                    html += renderProductCard(p);
+                    count++;
+                }
+            });
+        }
 
         if (count === 0) {
             html = '<div class="no-products-msg col-12"><i class="fa fa-search fa-2x m-b15" style="opacity:0.3;"></i><br>No products found matching your search.</div>';
@@ -794,6 +853,7 @@
         if (e.key === 'Enter') doSearch();
     });
     </script>
+
 
 </body>
 
