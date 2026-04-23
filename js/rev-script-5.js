@@ -106,7 +106,9 @@ tpj(document).ready(function () {
 		});
 	}
 
-	RsSnowAddOn(tpj, revapi149);
+	if (typeof RsSnowAddOn === 'function' && revapi149) {
+		RsSnowAddOn(tpj, revapi149);
+	}
 });	/*ready*/
 
 

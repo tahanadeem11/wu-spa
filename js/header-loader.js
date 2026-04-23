@@ -61,14 +61,20 @@ Uses embedded content to avoid AJAX issues with file:// protocol
         // Remove query string and hash if present
         currentPage = currentPage.split('?')[0].split('#')[0];
         
-        // Map page files to menu items
+        // Map page files to menu items (matches header nav hrefs)
         var menuMapping = {
             'index.html': 'index.html',
-            'about-1.html': 'about-1.html',
-            'about-2.html': 'about-1.html',
-            'services-1.html': 'services-1.html',
-            'services-2.html': 'services-1.html',
-            'services-detail.html': 'services-1.html',
+            'about.html': 'about.html',
+            'about-1.html': 'about.html',
+            'about-2.html': 'about.html',
+            'services.html': 'services.html',
+            'services-1.html': 'services.html',
+            'services-2.html': 'services.html',
+            'services-detail.html': 'services.html',
+            'product.html': 'product.html',
+            'product-detail.html': 'product.html',
+            'shopping-cart.html': 'shopping-cart.html',
+            'checkout.html': 'checkout.html',
             'gallery-grid-1.html': 'gallery-grid-1.html',
             'gallery-grid-2.html': 'gallery-grid-1.html',
             'gallery-grid-3.html': 'gallery-grid-1.html',
@@ -84,7 +90,12 @@ Uses embedded content to avoid AJAX issues with file:// protocol
             'contact-2.html': 'contact-1.html',
             'contact-3.html': 'contact-1.html'
         };
-        
+
+        // Service detail pages highlight the Services parent in the nav
+        if (/^service-/i.test(currentPage)) {
+            currentPage = 'services.html';
+        }
+
         // Find the menu item to activate
         var targetHref = menuMapping[currentPage] || currentPage;
         

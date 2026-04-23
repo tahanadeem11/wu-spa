@@ -596,63 +596,44 @@
             ingredients: 'Tri-Peptide Complex, Shea Butter, Vitamin E, Retinol',
             skinType: 'All Skin Types — Eye Area',
             size: '0.5 oz'
+        }
+    ];
+
+    var PRODUCTS = [
+        // CLEANSERS
+        {
+            id: 'raspberry-refining-cleanser',
+            name: 'Raspberry Refining Cleanser',
+            price: 28.00,
+            category: 'cleanser',
+            image: 'images/Products images/Cleanser/raspberry refining/',
+            description: 'A unique foamy cleanser with 2% glycolic acid and 2% salicylic acid that clarifies the skin and removes surface buildup for a polished complexion.',
+            ingredients: 'Glycolic Acid, Salicylic Acid, Raspberry, Yucca',
+            skinType: 'Oily, Combination, Acne-Prone',
+            size: '6.5 oz'
         },
         {
-            id: 'blemish-spot-treatment',
-            name: 'Blemish Spot Treatment',
-            price: 23.00,
-            category: 'serum',
-            image: 'images/Products images/Serums/blemish spot treatment/',
-            description: 'A fast-acting targeted spot treatment with salicylic acid and sulfur that rapidly reduces the size and redness of blemishes overnight for clearer skin.',
-            ingredients: 'Salicylic Acid, Sulfur, Tea Tree Oil, Zinc Oxide',
-            skinType: 'Oily, Acne-Prone, Combination',
-            size: '0.5 oz'
-        },
-        // MASKS
-        {
-            id: 'botanical-bloom-hydrating-mask',
-            name: 'Botanical Bloom Hydrating Mask',
-            price: 48.00,
-            category: 'mask',
-            image: 'images/Products images/RetailHeroShots/RetailHero2.jpg',
-            description: 'A luxurious botanical hydrating mask infused with rare flower extracts, hyaluronic acid, and nourishing botanicals that delivers an intense surge of moisture and radiance in just 15 minutes.',
-            ingredients: 'Rose Extract, Hyaluronic Acid, Aloe Vera, Glycerin, Chamomile',
-            skinType: 'Dry, Normal, Sensitive',
-            size: '2 oz'
+            id: 'green-tea-citrus-cleanser',
+            name: 'Green Tea Citrus Cleanser',
+            price: 28.00,
+            category: 'cleanser',
+            image: 'images/Products images/Cleanser/green tea/',
+            description: 'A clarifying cleanser with grapefruit, lemon, and yucca to gently remove makeup and toxins while protecting the skin with powerful green tea antioxidants.',
+            ingredients: 'Green Tea, Grapefruit, Lemon, Yucca',
+            skinType: 'All Skin Types, Rosacea, Sensitive',
+            size: '6.5 oz'
         },
         // MOISTURIZERS
         {
-            id: 'light-aloe-moisturizer',
-            name: 'Light Aloe Moisturizer',
-            price: 24.00,
+            id: 'peptide-moisturizer',
+            name: 'Peptide Moisturizer',
+            price: 55.00,
             category: 'moisturizer',
-            image: 'images/Products images/Moisturizer/light aloe/',
-            description: 'A lightweight, oil-free gel moisturizer with pure aloe vera that hydrates without clogging pores, calms inflammation, and creates a perfect canvas for makeup.',
-            ingredients: 'Aloe Vera, Hyaluronic Acid, Green Tea, Niacinamide',
-            skinType: 'Oily, Combination, Sensitive',
-            size: '1.75 oz / 8 oz'
-        },
-        {
-            id: 'ageless-skin-moisturizer',
-            name: 'Ageless Skin Moisturizer',
-            price: 24.00,
-            category: 'moisturizer',
-            image: 'images/Products images/Moisturizer/ageless skin/',
-            description: 'A comprehensive anti-aging moisturizer that combines peptides, antioxidants, and humectants to address multiple signs of aging — fine lines, loss of firmness, and uneven texture.',
-            ingredients: 'Peptide Complex, Vitamin C, Retinol, Hyaluronic Acid',
-            skinType: 'Normal, Aging, Dry',
-            size: '2 oz / 8 oz'
-        },
-        {
-            id: 'cacteen-balancing-moisturizer',
-            name: 'Cacteen Balancing Moisturizer',
-            price: 31.00,
-            category: 'moisturizer',
-            image: 'images/Products images/Moisturizer/barrier balancing/',
-            description: 'A balancing moisturizer with cactus extract and ceramides that restores the skin\'s natural barrier, regulates sebum production, and provides balanced hydration for combination skin.',
-            ingredients: 'Cactus Extract, Ceramides, Niacinamide, Zinc PCA',
-            skinType: 'Combination, Oily, Blemish-Prone',
-            size: '1.75 oz / 8 oz'
+            image: 'images/Products images/Moisturizer/peptide/',
+            description: 'A premium firming moisturizer with multiple peptide sequences that visibly lifts and smooths skin for a more youthful appearance.',
+            ingredients: 'Peptides, EGF, Ceramides',
+            skinType: 'Aging, Normal, Dry',
+            size: '1.75 oz'
         },
         {
             id: 'acai-berry-moisturizer',
@@ -660,32 +641,67 @@
             price: 37.00,
             category: 'moisturizer',
             image: 'images/Products images/Moisturizer/acai berry/AcaiBerryMoisturizer_8oz_website.jpg',
-            description: 'A supercharged antioxidant moisturizer rich in Omega-3 fatty acids and acai berry extract that protects against environmental damage, deeply nourishes, and promotes a youthful, plump complexion.',
-            ingredients: 'Acai Berry Extract, Omega-3, Vitamin E, Resveratrol',
+            description: 'A supercharged antioxidant moisturizer rich in Omega-3 fatty acids that restores your skin\'s natural radiance and provides deep hydration.',
+            ingredients: 'Acai Berry, Omega-3, Vitamin E',
             skinType: 'Normal, Dry, Mature',
-            size: '1.7 oz / 8 oz'
+            size: '1.7 oz'
         },
         {
-            id: 'peptide-moisturizer',
-            name: 'Peptide Moisturizer',
-            price: 55.00,
+            id: 'light-aloe-moisturizer',
+            name: 'Light Aloe Moisturizer',
+            price: 24.00,
             category: 'moisturizer',
-            image: 'images/Products images/Moisturizer/peptide/',
-            description: 'A premium peptide-rich moisturizer that visibly firms, lifts, and smooths skin over time. Multiple peptide sequences target different pathways for comprehensive anti-aging results.',
-            ingredients: 'Multi-Peptide Complex, EGF, Ceramides, Hyaluronic Acid',
-            skinType: 'Mature, Aging, Normal',
+            image: 'images/Products images/Moisturizer/light aloe/',
+            description: 'A lightweight, cooling moisturizer with pure aloe vera that hydrates without clogging pores and calms sensitive, irritated skin.',
+            ingredients: 'Aloe Vera, Hyaluronic Acid',
+            skinType: 'Oily, Combination, Sensitive',
             size: '1.75 oz'
         },
+        // SERUMS
         {
-            id: 'hydrating-moisturizer',
-            name: 'Hydrating Moisturizer',
+            id: 'vitamin-c-serum',
+            name: 'Vitamin C Green Tea Serum',
+            price: 42.00,
+            category: 'serum',
+            image: 'images/Products images/Serums/vitamin c/',
+            description: 'A potent antioxidant serum with 15% Vitamin C that brightens skin tone, increases collagen production, and protects against environmental damage.',
+            ingredients: 'Vitamin C, Green Tea, Peptides',
+            skinType: 'All Skin Types',
+            size: '1 oz'
+        },
+        {
+            id: 'hyaluronic-serum',
+            name: 'Ageless Hydrating Serum',
+            price: 35.00,
+            category: 'serum',
+            image: 'images/Products images/Serums/ageless hydrating/',
+            description: 'An intensive hydrating serum with multiple weights of hyaluronic acid that plumps fine lines and restores moisture balance for a dewy glow.',
+            ingredients: 'Hyaluronic Acid, Honey, Aloe',
+            skinType: 'All Skin Types, Dehydrated',
+            size: '1 oz'
+        },
+        // MASKS
+        {
+            id: 'goji-berry-yogurt-mask',
+            name: 'Goji Berry Yogurt Mask',
+            price: 36.00,
+            category: 'mask',
+            image: 'images/Products images/Masks/goji berry/',
+            description: 'A creamy, yogurt-based mask with goji berries and cucumber that firms, hydrates, and calms the skin for a revitalized, healthy appearance.',
+            ingredients: 'Goji Berry, Yogurt, Cucumber',
+            skinType: 'Dry, Dehydrated, Aging',
+            size: '2 oz'
+        },
+        {
+            id: 'charcoal-clay-mask',
+            name: 'Charcoal Clay Mask',
             price: 32.00,
-            category: 'moisturizer',
-            image: 'images/Products images/Moisturizer/hydrating/',
-            description: 'A deeply hydrating moisturizer with hyaluronic acid and humectant complex that provides 24-hour moisture retention, strengthens the skin barrier, and leaves skin soft and comfortable.',
-            ingredients: 'Hyaluronic Acid, Glycerin, Ceramides, Vitamin B5',
-            skinType: 'Dry, Dehydrated, Normal',
-            size: '1.75 oz'
+            category: 'mask',
+            image: 'images/Products images/Masks/charcoal clay/',
+            description: 'A purifying clay mask with activated charcoal that draws out toxins and environmental pollutants while refining pores and controlling excess oil.',
+            ingredients: 'Activated Charcoal, Kaolin Clay',
+            skinType: 'Oily, Congested, Acne-Prone',
+            size: '2 oz'
         },
         // SUN PROTECTION
         {
@@ -694,22 +710,10 @@
             price: 30.00,
             category: 'spf',
             image: 'images/Products images/SPF/SheerProtectionSPF30_2oz.webp',
-            description: 'A featherlight, non-greasy broad-spectrum SPF 30 sunscreen that provides superior UVA/UVB protection while wearing comfortably under makeup. No white cast. Daily essential for all skin types.',
-            ingredients: 'Zinc Oxide, Octinoxate, Vitamin C, Green Tea Extract',
+            description: 'A featherlight, non-greasy SPF 30 that provides broad-spectrum UVA/UVB protection without leaving any white cast or heavy residue.',
+            ingredients: 'Zinc Oxide, Green Tea',
             skinType: 'All Skin Types',
             size: '2 oz'
-        },
-        // LIPS
-        {
-            id: 'ageless-lip-treatment',
-            name: 'Ageless Lip Treatment',
-            price: 16.00,
-            category: 'lip',
-            image: 'images/Products images/Lip Treatment/NewLipTX_ProductImage.png',
-            description: 'A nourishing, anti-aging lip treatment available in Pomegranate or Peppermint. Plumps, hydrates, and protects lips with SPF while delivering a beautiful tinted sheen. Clinically tested for long-lasting results.',
-            ingredients: 'Peptides, SPF 15, Vitamin E, Shea Butter, Pomegranate/Peppermint Extract',
-            skinType: 'All — Lip Area',
-            size: '0.25 oz (Pomegranate or Peppermint)'
         }
     ];
 

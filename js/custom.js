@@ -563,6 +563,11 @@ function masonryBox() {
 		jQuery(document).on('headerLoaded', function() {
 			sticky_header();
 		}),
+
+	// > Re-run footer layout when dynamically loaded footer mounts
+		jQuery(document).on('footerLoaded', function() {
+			footer_fixed();
+		}),
 	
 	// > page scroll top on button click function by = custom.js	
 		scroll_top(),

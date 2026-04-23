@@ -150,6 +150,13 @@ var WuSpaCart = (function () {
         }, 200);
     });
 
+    if (typeof jQuery !== 'undefined') {
+        jQuery(document).on('headerLoaded', function () {
+            updateCartCount();
+            refreshCartDropdown();
+        });
+    }
+
     return {
         getCart: getCart,
         addToCart: addToCart,
