@@ -8,7 +8,20 @@ var WuSpaCart = (function () {
 
     function getCart() {
         try {
-            return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+            var cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+            // Sync prices if PRODUCTS exists
+            if (typeof PRODUCTS !== 'undefined' && cart.length > 0) {
+                var updated = false;
+                cart.forEach(function(item) {
+                    var master = PRODUCTS.find(function(p) { return p.id === item.id; });
+                    if (master && master.price !== item.price) {
+                        item.price = master.price;
+                        updated = true;
+                    }
+                });
+                if (updated) saveCart(cart);
+            }
+            return cart;
         } catch (e) {
             return [];
         }

@@ -27,7 +27,6 @@
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="css/magnific-popup.min.css">
-    <link rel="stylesheet" type="text/css" href="css/loader.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" class="skin" href="css/skin/skin-1.css">
 
@@ -334,388 +333,33 @@
 
     </div>
 
-    <!-- LOADING AREA -->
-    <div class="loading-area">
-        <div class="loading-box"></div>
-        <div class="loading-pic">
-            <div class="cssload-container">
-                <div class="cssload-progress cssload-float cssload-shadow">
-                    <div class="cssload-progress-item"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- JAVASCRIPT FILES -->
     <script src="js/jquery-3.6.1.min.js"></script>
-    <script src="js/header-content.js"></script>
-    <script src="js/header-loader.js"></script>
-    <script src="js/footer-content.js"></script>
-    <script src="js/footer-loader.js"></script>
+    <script src="js/products-data.js"></script>
+    <script src="js/header-content.js" defer></script>
+    <script src="js/header-loader.js" defer></script>
+    <script src="js/footer-content.js" defer></script>
+    <script src="js/footer-loader.js" defer></script>
     <script src="js/cart.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="js/magnific-popup.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/counterup.min.js"></script>
-    <script src="js/waypoints-sticky.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/scrolla.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/shortcode.js"></script>
+    <script src="js/popper.min.js" defer></script>
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/bootstrap-select.min.js" defer></script>
+    <script src="js/jquery.bootstrap-touchspin.min.js" defer></script>
+    <script src="js/magnific-popup.min.js" defer></script>
+    <script src="js/waypoints.min.js" defer></script>
+    <script src="js/counterup.min.js" defer></script>
+    <script src="js/waypoints-sticky.min.js" defer></script>
+    <script src="js/isotope.pkgd.min.js" defer></script>
+    <script src="js/imagesloaded.pkgd.min.js" defer></script>
+    <script src="js/owl.carousel.min.js" defer></script>
+    <script src="js/scrolla.min.js" defer></script>
+    <script src="js/custom.js" defer></script>
+    <script src="js/shortcode.js" defer></script>
 
     <script>
     /* =============================================
-       PRODUCT CATALOG DATA
+       PRODUCT CATALOG DATA (Centralized in js/products-data.js)
     ============================================= */
-    var PRODUCTS = [
-        // CLEANSERS
-        {
-            id: 'pomegranate-antioxidant-cleanser',
-            name: 'Pomegranate Antioxidant Cleanser',
-            price: 32.00,
-            category: 'cleanser',
-            image: 'images/Products images/Cleansers/pomegranate/Pomegranate_2oz.jpg',
-            description: 'A rich antioxidant-packed cleanser with pomegranate extract that gently removes impurities while protecting against free radical damage. Ideal for normal to dry and mature skin types.',
-            ingredients: 'Pomegranate Extract, Vitamin C, Botanical Antioxidants, Aloe Vera',
-            skinType: 'Normal, Dry, Mature',
-            size: '6.4 oz'
-        },
-        {
-            id: 'green-tea-citrus-cleanser',
-            name: 'Green Tea Citrus Cleanser',
-            price: 32.00,
-            category: 'cleanser',
-            image: 'images/Products images/Cleansers/green tea citrus/',
-            description: 'A refreshing gel cleanser infused with green tea and citrus extracts to brighten skin, fight oxidative stress, and leave your complexion luminous and clean.',
-            ingredients: 'Green Tea Extract, Citrus Extracts, Vitamin C, Salicylic Acid',
-            skinType: 'Normal, Oily, Combination',
-            size: '6.4 oz'
-        },
-        {
-            id: 'charcoal-clay-cleanser',
-            name: 'Charcoal Clay Cleanser',
-            price: 32.00,
-            category: 'cleanser',
-            image: 'images/Products images/Cleansers/charcoal clay/',
-            description: 'A deep-purifying cleanser featuring activated charcoal and kaolin clay that draws out impurities, unclogs pores, and controls excess oil for a clearer, balanced complexion.',
-            ingredients: 'Activated Charcoal, Kaolin Clay, Tea Tree Oil, Aloe Vera',
-            skinType: 'Oily, Combination, Acne-Prone',
-            size: '6.4 oz'
-        },
-        {
-            id: 'honey-brightening-cleanser',
-            name: 'Honey Brightening Cleanser',
-            price: 39.00,
-            category: 'cleanser',
-            image: 'images/Products images/Cleansers/honey brightening/',
-            description: 'A luxurious, brightening cream cleanser enriched with natural honey and brightening botanical extracts. Hydrates while it cleanses, leaving skin soft, supple, and radiant.',
-            ingredients: 'Raw Honey, Vitamin C, Licorice Root Extract, Glycerin',
-            skinType: 'Dry, Normal, Dull',
-            size: '6.4 oz'
-        },
-        {
-            id: 'glycolic-cleanser',
-            name: 'Glycolic Cleanser',
-            price: 36.00,
-            category: 'cleanser',
-            image: 'images/Products images/Cleansers/glycolic/',
-            description: 'An exfoliating cleanser with glycolic acid that gently resurfaces the skin, removes dead skin cells, and promotes cell turnover for a smoother, brighter complexion.',
-            ingredients: 'Glycolic Acid, Lactic Acid, Aloe Vera, Cucumber Extract',
-            skinType: 'Normal, Oily, Sun-damaged',
-            size: '6.4 oz'
-        },
-        {
-            id: 'raspberry-refining-cleanser',
-            name: 'Raspberry Refining Cleanser',
-            price: 33.00,
-            category: 'cleanser',
-            image: 'images/Products images/Cleansers/raspberry refining/',
-            description: 'A gentle exfoliating cleanser with raspberry seed powder and fruit enzymes that refines skin texture, minimizes pores, and leaves skin velvety soft.',
-            ingredients: 'Raspberry Seed Powder, Fruit Enzymes, Vitamin E, Chamomile',
-            skinType: 'All Skin Types',
-            size: '6.4 oz'
-        },
-        // EXFOLIANTS
-        {
-            id: 'revitalizing-cucumber-treatment',
-            name: 'Revitalizing Cucumber Treatment',
-            price: 52.00,
-            category: 'exfoliant',
-            image: 'images/Products images/Exfoliants/Revitalizing Cucumber Treatment/',
-            description: 'An advanced resurfacing treatment with cucumber extract and alpha hydroxy acids that accelerates cell turnover, smooths texture, and delivers intense hydration while exfoliating.',
-            ingredients: 'Cucumber Extract, AHAs, Hyaluronic Acid, Aloe Vera',
-            skinType: 'All Skin Types, Sensitive-Friendly',
-            size: '2 oz'
-        },
-        {
-            id: 'retinol-exfoliating-scrub',
-            name: 'Retinol Exfoliating Scrub',
-            price: 45.00,
-            category: 'exfoliant',
-            image: 'images/Products images/Exfoliants/RetinolExfoliatingScrub/RetinolExfoliatingScrub_1.7oz.jpg',
-            description: 'A powerful anti-aging exfoliating scrub combining retinol with physical exfoliants to resurface skin, diminish fine lines, and stimulate collagen production for a youthful glow.',
-            ingredients: 'Retinol, Jojoba Beads, Vitamin A, Glycolic Acid, Shea Butter',
-            skinType: 'Normal, Aging, Sun-damaged',
-            size: '1.7 oz'
-        },
-        {
-            id: 'raspberry-scrub',
-            name: 'Raspberry Scrub',
-            price: 33.00,
-            category: 'exfoliant',
-            image: 'images/Products images/Exfoliants/raspberry refining/',
-            description: 'A delicate physical exfoliating scrub with raspberry seed powder that gently buffs away dead skin cells, unclogs pores, and improves skin texture for a radiant finish.',
-            ingredients: 'Raspberry Seed Powder, Jojoba Beads, Aloe Vera, Vitamin E',
-            skinType: 'Normal, Sensitive, Dry',
-            size: '2 oz'
-        },
-        {
-            id: 'glycolic-retinol-pads',
-            name: 'Glycolic and Retinol Pads',
-            price: 30.00,
-            category: 'exfoliant',
-            image: 'images/Products images/Exfoliants/glycolic and retinol pads/',
-            description: 'Pre-soaked exfoliating pads infused with glycolic acid and retinol that deliver a powerful dual-action resurfacing treatment — easy to use, visible results.',
-            ingredients: 'Glycolic Acid, Retinol, Witch Hazel, Niacinamide',
-            skinType: 'Normal, Oily, Aging',
-            size: '60 pads'
-        },
-        {
-            id: 'clarifying-toner-pads',
-            name: 'Clarifying Toner Pads',
-            price: 22.00,
-            category: 'exfoliant',
-            image: 'images/Products images/Exfoliants/clarifying toner pads/',
-            description: 'Convenient pre-soaked toning pads with salicylic acid and witch hazel that clarify congested skin, reduce blemishes, and refine pores after cleansing.',
-            ingredients: 'Salicylic Acid, Witch Hazel, Tea Tree Extract, Aloe Vera',
-            skinType: 'Oily, Acne-Prone, Combination',
-            size: '60 pads'
-        },
-        // TONERS
-        {
-            id: 'mint-refining-toner',
-            name: 'Mint Refining Toner',
-            price: 24.00,
-            category: 'toner',
-            image: 'images/Products images/Toners/mint refining/Mint_Toner3.3oz.jpg',
-            description: 'A refreshing pore-refining toner with peppermint extract and astringent botanicals that tightens pores, balances pH, and preps skin for optimal product absorption.',
-            ingredients: 'Peppermint Extract, Witch Hazel, Niacinamide, Green Tea',
-            skinType: 'Normal, Oily, Combination',
-            size: '3.3 oz / 16 oz'
-        },
-        {
-            id: 'cucumber-hydration-toner',
-            name: 'Cucumber Hydration Toner',
-            price: 24.00,
-            category: 'toner',
-            image: 'images/Products images/Toners/cucumber hydrating/',
-            description: 'A soothing, hydrating toner with cucumber extract and hyaluronic acid that calms redness, replenishes moisture levels, and leaves skin refreshed and balanced.',
-            ingredients: 'Cucumber Extract, Hyaluronic Acid, Aloe Vera, Rosewater',
-            skinType: 'Normal, Dry, Sensitive',
-            size: '3.3 oz / 16 oz'
-        },
-        // SERUMS
-        {
-            id: 'citrus-c-nourishing-cream',
-            name: 'Citrus C Nourishing Cream',
-            price: 48.00,
-            category: 'serum',
-            image: 'images/Products images/Serums/citrus-c nourishing/CitrusCNourishingCream_4oz.jpg',
-            description: 'A vitamin C-rich brightening cream serum that evens skin tone, fades dark spots, and delivers powerful antioxidant protection for a luminous, radiant complexion.',
-            ingredients: 'Vitamin C (L-Ascorbic Acid), Citrus Extracts, Niacinamide, Ferulic Acid',
-            skinType: 'All Skin Types, Dull/Uneven',
-            size: '4 oz'
-        },
-        {
-            id: 'triple-c-serum',
-            name: 'Triple C Serum',
-            price: 44.00,
-            category: 'serum',
-            image: 'images/Products images/Serums/triple c serum/',
-            description: 'A potent triple-action vitamin C serum that brightens, firms, and protects skin simultaneously. Three forms of vitamin C work synergistically for maximum efficacy and stability.',
-            ingredients: 'L-Ascorbic Acid, Vitamin C Glucoside, Ascorbyl Palmitate, Vitamin E',
-            skinType: 'Normal, Aging, Dull',
-            size: '1 oz'
-        },
-        {
-            id: 'ageless-hydrating-serum',
-            name: 'Ageless Skin Hydrating Serum',
-            price: 40.00,
-            category: 'serum',
-            image: 'images/Products images/Serums/ageless hydrating/',
-            description: 'An intensely hydrating anti-aging serum with hyaluronic acid and peptides that plumps fine lines, restores moisture barrier function, and delivers lasting hydration.',
-            ingredients: 'Hyaluronic Acid, Tripeptide Complex, Vitamin B5, Glycerin',
-            skinType: 'Dry, Mature, Dehydrated',
-            size: '1 oz'
-        },
-        {
-            id: 'advanced-renewal-serum',
-            name: 'Advanced Renewal Serum',
-            price: 66.00,
-            category: 'serum',
-            image: 'images/Products images/Serums/Advanced Renewal Serum/',
-            description: 'Our most advanced anti-aging serum featuring stem cell technology, growth factors, and peptides that visibly regenerate and renew skin for dramatic age-defying results.',
-            ingredients: 'Plant Stem Cells, EGF, Tripeptide-5, Retinol, Vitamin C',
-            skinType: 'Mature, Aging, Sun-damaged',
-            size: '1 oz'
-        },
-        {
-            id: 'mandelic-brightening-serum',
-            name: 'Mandelic Brightening Serum',
-            price: 40.00,
-            category: 'serum',
-            image: 'images/Products images/Serums/mandelic brightening serum/',
-            description: 'A gentle yet effective brightening serum with mandelic acid that treats hyperpigmentation, evens skin tone, and provides mild exfoliation without causing irritation.',
-            ingredients: 'Mandelic Acid, Kojic Acid, Niacinamide, Licorice Root',
-            skinType: 'All Skin Types, Hyperpigmentation',
-            size: '1 oz'
-        },
-        {
-            id: 'peptide-eye-serum',
-            name: 'Peptide Eye Serum',
-            price: 36.00,
-            category: 'serum',
-            image: 'images/Products images/Serums/peptide eye/',
-            description: 'A targeted eye serum with peptide complex and caffeine that reduces dark circles, firms the delicate eye area, and minimizes the appearance of fine lines and crow\'s feet.',
-            ingredients: 'Peptide Complex, Caffeine, Hyaluronic Acid, Vitamin K',
-            skinType: 'All Skin Types — Eye Area',
-            size: '0.5 oz'
-        },
-        {
-            id: 'tri-peptide-eye-cream',
-            name: 'Tri-Peptide Eye Cream',
-            price: 36.00,
-            category: 'serum',
-            image: 'images/Products images/Serums/tri-peptide eye cream/',
-            description: 'A rich, nourishing eye cream with three powerful peptides that work together to firm, lift, and rejuvenate the eye contour while providing deep hydration.',
-            ingredients: 'Tri-Peptide Complex, Shea Butter, Vitamin E, Retinol',
-            skinType: 'All Skin Types — Eye Area',
-            size: '0.5 oz'
-        }
-    ];
-
-    var PRODUCTS = [
-        // CLEANSERS
-        {
-            id: 'raspberry-refining-cleanser',
-            name: 'Raspberry Refining Cleanser',
-            price: 28.00,
-            category: 'cleanser',
-            image: 'images/Products images/Cleanser/raspberry refining/',
-            description: 'A unique foamy cleanser with 2% glycolic acid and 2% salicylic acid that clarifies the skin and removes surface buildup for a polished complexion.',
-            ingredients: 'Glycolic Acid, Salicylic Acid, Raspberry, Yucca',
-            skinType: 'Oily, Combination, Acne-Prone',
-            size: '6.5 oz'
-        },
-        {
-            id: 'green-tea-citrus-cleanser',
-            name: 'Green Tea Citrus Cleanser',
-            price: 28.00,
-            category: 'cleanser',
-            image: 'images/Products images/Cleanser/green tea/',
-            description: 'A clarifying cleanser with grapefruit, lemon, and yucca to gently remove makeup and toxins while protecting the skin with powerful green tea antioxidants.',
-            ingredients: 'Green Tea, Grapefruit, Lemon, Yucca',
-            skinType: 'All Skin Types, Rosacea, Sensitive',
-            size: '6.5 oz'
-        },
-        // MOISTURIZERS
-        {
-            id: 'peptide-moisturizer',
-            name: 'Peptide Moisturizer',
-            price: 55.00,
-            category: 'moisturizer',
-            image: 'images/Products images/Moisturizer/peptide/',
-            description: 'A premium firming moisturizer with multiple peptide sequences that visibly lifts and smooths skin for a more youthful appearance.',
-            ingredients: 'Peptides, EGF, Ceramides',
-            skinType: 'Aging, Normal, Dry',
-            size: '1.75 oz'
-        },
-        {
-            id: 'acai-berry-moisturizer',
-            name: 'Acai Berry Moisturizer',
-            price: 37.00,
-            category: 'moisturizer',
-            image: 'images/Products images/Moisturizer/acai berry/AcaiBerryMoisturizer_8oz_website.jpg',
-            description: 'A supercharged antioxidant moisturizer rich in Omega-3 fatty acids that restores your skin\'s natural radiance and provides deep hydration.',
-            ingredients: 'Acai Berry, Omega-3, Vitamin E',
-            skinType: 'Normal, Dry, Mature',
-            size: '1.7 oz'
-        },
-        {
-            id: 'light-aloe-moisturizer',
-            name: 'Light Aloe Moisturizer',
-            price: 24.00,
-            category: 'moisturizer',
-            image: 'images/Products images/Moisturizer/light aloe/',
-            description: 'A lightweight, cooling moisturizer with pure aloe vera that hydrates without clogging pores and calms sensitive, irritated skin.',
-            ingredients: 'Aloe Vera, Hyaluronic Acid',
-            skinType: 'Oily, Combination, Sensitive',
-            size: '1.75 oz'
-        },
-        // SERUMS
-        {
-            id: 'vitamin-c-serum',
-            name: 'Vitamin C Green Tea Serum',
-            price: 42.00,
-            category: 'serum',
-            image: 'images/Products images/Serums/vitamin c/',
-            description: 'A potent antioxidant serum with 15% Vitamin C that brightens skin tone, increases collagen production, and protects against environmental damage.',
-            ingredients: 'Vitamin C, Green Tea, Peptides',
-            skinType: 'All Skin Types',
-            size: '1 oz'
-        },
-        {
-            id: 'hyaluronic-serum',
-            name: 'Ageless Hydrating Serum',
-            price: 35.00,
-            category: 'serum',
-            image: 'images/Products images/Serums/ageless hydrating/',
-            description: 'An intensive hydrating serum with multiple weights of hyaluronic acid that plumps fine lines and restores moisture balance for a dewy glow.',
-            ingredients: 'Hyaluronic Acid, Honey, Aloe',
-            skinType: 'All Skin Types, Dehydrated',
-            size: '1 oz'
-        },
-        // MASKS
-        {
-            id: 'goji-berry-yogurt-mask',
-            name: 'Goji Berry Yogurt Mask',
-            price: 36.00,
-            category: 'mask',
-            image: 'images/Products images/Masks/goji berry/',
-            description: 'A creamy, yogurt-based mask with goji berries and cucumber that firms, hydrates, and calms the skin for a revitalized, healthy appearance.',
-            ingredients: 'Goji Berry, Yogurt, Cucumber',
-            skinType: 'Dry, Dehydrated, Aging',
-            size: '2 oz'
-        },
-        {
-            id: 'charcoal-clay-mask',
-            name: 'Charcoal Clay Mask',
-            price: 32.00,
-            category: 'mask',
-            image: 'images/Products images/Masks/charcoal clay/',
-            description: 'A purifying clay mask with activated charcoal that draws out toxins and environmental pollutants while refining pores and controlling excess oil.',
-            ingredients: 'Activated Charcoal, Kaolin Clay',
-            skinType: 'Oily, Congested, Acne-Prone',
-            size: '2 oz'
-        },
-        // SUN PROTECTION
-        {
-            id: 'sheer-protection-spf30',
-            name: 'Sheer Protection SPF 30',
-            price: 30.00,
-            category: 'spf',
-            image: 'images/Products images/SPF/SheerProtectionSPF30_2oz.webp',
-            description: 'A featherlight, non-greasy SPF 30 that provides broad-spectrum UVA/UVB protection without leaving any white cast or heavy residue.',
-            ingredients: 'Zinc Oxide, Green Tea',
-            skinType: 'All Skin Types',
-            size: '2 oz'
-        }
-    ];
 
     /* =============================================
        FALLBACK IMAGE MAPPING
@@ -735,9 +379,9 @@
        RENDER PRODUCT CARD
     ============================================= */
     function renderProductCard(product) {
-        var imgSrc = product.image;
-        // If image path ends with /, use a fallback
-        if (imgSrc.slice(-1) === '/') {
+        var imgSrc = product.image || (product.images && product.images[0]) || '';
+        // If image path ends with / or is empty, use a fallback
+        if (!imgSrc || imgSrc.slice(-1) === '/') {
             imgSrc = IMAGE_FALLBACKS[product.category] || 'images/Products images/RetailHeroShots/RetailHero1.jpg';
         }
         var stars = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i>';
@@ -746,7 +390,7 @@
             '<div class="wt-box wt-product-box">' +
             '<div class="product-card-img-wrap">' +
             '<a href="product-detail.html?product=' + product.id + '">' +
-            '<img src="' + imgSrc + '" alt="' + product.name + '" onerror="this.src=\'' + (IMAGE_FALLBACKS[product.category] || 'images/Products images/RetailHeroShots/RetailHero1.jpg') + '\'">' +
+            '<img src="' + imgSrc + '" alt="' + product.name + '" loading="lazy" onerror="this.src=\'' + (IMAGE_FALLBACKS[product.category] || 'images/Products images/RetailHeroShots/RetailHero1.jpg') + '\'">' +
             '</a>' +
             '</div>' +
             '<div class="product-card-info">' +

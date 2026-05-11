@@ -132,7 +132,7 @@ var HEADER_4_CONTENT = `
                                         <li><a href="service-facial.html">Facial</a></li>
 
                                         <li><a href="service-spa.html">SPA</a></li>
-                                        <li><a href="service-body-rub.html">Body Rub</a></li>
+                                        <li><a href="service-pregnancy-massage.html">Pregnancy Massage</a></li>
                                         <li><a href="service-skin-care.html">Skin Care</a></li>
                                         <li><a href="service-rejuvenating-facial-rituals.html">Rejuvenating Facial Rituals</a></li>
                                         <li><a href="service-signature-body-treatments.html">Signature Body Treatments</a></li>
@@ -141,12 +141,8 @@ var HEADER_4_CONTENT = `
                                 <li>
                                     <a href="gallery-grid-1.html">Gallery</a>
                                 </li>
-                                <li class="has-child">
-                                    <a href="product.html">Shop <i class="fa fa-chevron-down"></i></a>
-                                    <ul class="sub-menu">
-                                        <li><a href="product.html">All Products</a></li>
-                                        <li><a href="shopping-cart.html"><i class="fa fa-shopping-cart" style="margin-right:5px;"></i>View Cart</a></li>
-                                    </ul>
+                                <li>
+                                    <a href="product.html">Products</a>
                                 </li>
                                
                                 <li>
